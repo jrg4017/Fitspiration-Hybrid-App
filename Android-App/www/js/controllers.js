@@ -4,7 +4,7 @@ angular.module('starter.controllers', [])
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
+  // To listen for when this ge is active (for example, to refresh data),
   // listen for the $ionicView.enter event:
   //$scope.$on('$ionicView.enter', function(e) {
   //});
@@ -44,10 +44,10 @@ angular.module('starter.controllers', [])
 //.controller('FitspirationsCtrl', function($scope){
 .controller('PlaylistsCtrl', function($scope) {
   $scope.playlists = [
-    { title: 'NewsFeed', id: 1 },
-    { title: 'Team Home', id: 2 },
-    { title: 'Challenge', id: 3 },
-    { title: 'Scoreboard', id: 4 }
+    { title: 'Oranges', id: 1 },
+    { title: 'Apples', id: 2 },
+    { title: 'Strawberry', id: 3 },
+    { title: 'Watermelon', id: 4 }
   ];
 })
 
@@ -63,3 +63,5 @@ angular.module('starter.controllers', [])
 //.controller('FitspirationCtrl', function($scope){
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 });
+
+

@@ -1,0 +1,17 @@
+"ng-directives"
++ ng-app      defines the AngularJS app
++ ng-model    binds the value of the HTML controls to app data (input/select/textarea)
++ ng-bind     binds app data to the HTML view
++ ng-init     initializes angluarjs application variable
+	+ data-ng        is an alternative to make HTML page valid
+
+"expressions"
++ {{ expression }}   outputs data where the expression is written, like ng-bind
+
+"applications"
++ modules          define angularjs applications
+	+ var app = angular.module('myApp', []);
++ controllers      control Angularjs application
+	+ ng-controller    defines the controller
+
+
