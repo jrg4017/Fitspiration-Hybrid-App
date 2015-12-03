@@ -54,7 +54,7 @@ angular.module('fitspiration.services', [])
 				return items;
 			});
 		}
-	}
+	};
 })
 /**
   * gets the chat 
