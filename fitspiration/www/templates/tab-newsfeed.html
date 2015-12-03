@@ -1,6 +1,26 @@
-<br><br>
+<ion-view view-title="" name="newsfeed-view" >
+<ion-refresher on-refresh="refreshFeed()"></ion-refresher>
 <ion-list>
-
+	<br><br>
+	<div class="list card" ng-if="item.length">
+		<ion-item class="item item-avatar" ng-repeat="item in items">
+			<img src="{{item.user.picture.thumbnail}} " />
+			<h2>{{item.user.name.first}} {{item.user.name.last}}</h2>
+			<p>{{item.user.location.city}} {{item.user.password}}</p>
+		</ion-item>
+	</div>
+	<div class="list" ng-if="!item.length">
+	<div class="item card">
+		<br>
+		<h2>Look like there's nothing here</h2>
+		<p>Upload your own content!</p>
+		<br>
+	</div></div>
+</ion-item>
+<ion-infinite-scroll on-infinite="loadMore()" distance="5%"></ion-infinite-scroll>
+</ion-view>	
+	<!--
+	<ion-list>
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/ben.png">
@@ -38,4 +58,4 @@
 
 </div>
 
-</ion-list>
+</ion-list>-->
