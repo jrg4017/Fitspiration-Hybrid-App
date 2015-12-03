@@ -44,7 +44,7 @@ angular.module('fitspiration', ['ionic', 'fitspiration.controllers', 'fitspirati
     url: '/dash',
     views: {
       'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
+        templateUrl: 'templates/tab-newsfeed.html',
         controller: 'DashCtrl'
       }
     }
