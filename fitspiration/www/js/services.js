@@ -1,5 +1,9 @@
 angular.module('fitspiration.services', [])
 
+/**
+  * grabs the login page when the app starts and 
+  * throws error when the credentials aren't correct
+  */
 .factory('LoginService', function($q) {
     return {
         loginUser: function(name, pw) {
@@ -23,7 +27,38 @@ angular.module('fitspiration.services', [])
         }
     }
 })
-
+/**
+  * designed to get the newsfeed and refresh the feed 10 results at a time
+  * until there are no more items
+  */
+.factory('PersonService', function($http){
+	var BASE_URL = "http://api.randomuser.me/";
+	var items = [];
+	
+	return {
+		GetFeed: function(){
+			return $http.get(BASE_URL+'?results=10').then(function(response){
+				items = response.data.results;
+				return items;
+			});
+		},
+		GetNewUsers: function(){
+			return $http.get(BASE_URL+'?results=2').then(function(response){
+				items = response.data.results;
+				return items;
+			});
+		},
+		GetOldUsers: function(){
+			return $http.get(BASE_URL+'?results=10').then(function(response){
+				items = response.data.results;
+				return items;
+			});
+		}
+	}
+})
+/**
+  * gets the chat 
+  */
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
 
@@ -73,6 +108,9 @@ angular.module('fitspiration.services', [])
   };
 })
 
+/**
+  * allows the camera plug in to be functional
+  */
 .factory('Camera', ['$q', function($q) {
  
   return {

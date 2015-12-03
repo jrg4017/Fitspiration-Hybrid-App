@@ -21,6 +21,9 @@ angular.module('fitspiration.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
+/**
+  * gets the log in and throws error if incorrect, goes to app
+  */
 .controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $state) {
     $scope.data = {};
  
