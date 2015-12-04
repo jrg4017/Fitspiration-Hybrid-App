@@ -1,0 +1,16 @@
+<ion-view view-title="Team">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="teams in team" type="item-text-wrap" href="#/tab/scoreboard/{{team.id}}">
+        <img ng-src="{{chat.face}}">
+        <h2>{{team.name}}</h2>
+        <p>{{team.currentScore}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

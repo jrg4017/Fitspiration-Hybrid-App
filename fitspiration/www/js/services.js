@@ -126,6 +126,50 @@ angular.module('fitspiration.services', [])
     }
   };
 })
+/**
+.factory('Scoreboard', function() {
+  // Might use a resource here that returns a JSON array
+
+  // Some fake testing data
+  var = [{
+    id: 0,
+    name: 'Taco',
+    currentScore: '300'
+  }, {
+    id: 1,
+    name: 'LadyLifts',
+    currentScore: '400'
+  }, {
+    id: 2,
+    name: 'E-Board',
+    currentScore: '300'
+  }, {
+    id: 3,
+    name: 'Burritos',
+    currentScore: '350'
+  }, {
+    id: 4,
+    name: 'Yoga Gals',
+    currentScore: '200'
+  }];
+
+  return {
+    all: function() {
+      return team;
+    },
+    remove: function(teams) {
+      team.splice(team.indexOf(teams), 1);
+    },
+    get: function(teamId) {
+      for (var i = 0; i < team.length; i++) {
+        if (team[i].id === parseInt(teamId)) {
+          return team[i];
+        }
+      }
+      return null;
+    }
+  };
+})*/
 
 /**
   * allows the camera plug in to be functional

@@ -59,19 +59,6 @@ angular.module('fitspiration.controllers', [])
     });
   };
   
- /**
- $scope.loadMore = function() {
-    $http.get('http://wallweight.com/api/get_recent_posts?page='+$scope.page).success(function(items) {
-	 var i = items.posts.length;
-	 $scope.posts = $scope.posts.concat(items.posts);
-	 $scope.posts.push(items);
-	  console.log(items.posts[0]);
-      $scope.$broadcast('scroll.infiniteScrollComplete');
-	  console.log($scope.page);
-	  $scope.page +=1;
-    });
-  }*/
-  
   /*checks for new items every 20 seconds and loads it into the newItems array */
    var CheckNewItems = function(){
 		$timeout(function(){
@@ -86,8 +73,17 @@ angular.module('fitspiration.controllers', [])
   CheckNewItems();
 })
 
+.controller('ChallengeCtrl', function($scope){})
+
+/**.controller('ScoreboardCtrl', function($scope, Scoreboard){
+	$scope.team = Scoreboard.all();
+  $scope.remove = function(team) {
+    Scoreboard.remove(team);
+  };
+})*/
+
 /**
-  * gets the log in and throws error if incorrect, goes to app
+  * gets the log in and throws ror if incorrect, goes to app
   */
 .controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $state) {
     $scope.data = {};

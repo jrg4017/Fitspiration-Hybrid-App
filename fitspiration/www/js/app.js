@@ -73,7 +73,25 @@ angular.module('fitspiration', ['ionic', 'fitspiration.controllers', 'fitspirati
       url: '/login',
       templateUrl: 'templates/login.html',
       controller: 'LoginCtrl'
+	})
+  
+  .state('tab.challenge', {
+	  url: '/challenge',
+	  views: {
+		  'tab-challenge':{
+			  templateUrl: 'templates/tab-challenge.html',
+			  controller: 'ChallengeCtrl'
+		  }
+	  }
   })
+  
+  /**.state('tab.scoreboard', {
+	  url: '/scoreboard/:teamId',
+	  views: {
+		  templateUrl: 'templates/tab-scoreboard.html',
+		  controller: 'ScoreboardCtrl'
+	  }
+  })*/
   
   
   .state('tab.account', {
