@@ -27,6 +27,7 @@ angular.module('fitspiration.controllers', [])
 .controller('NewsfeedCtrl', function($scope, $timeout, PersonService) {
   $scope.items = [];
   $scope.newItems = [];
+  $scope.page = 1;
   
   /* gets the feed and items*/
   PersonService.GetFeed().then(function(items){
@@ -57,6 +58,19 @@ angular.module('fitspiration.controllers', [])
       $scope.$broadcast('scroll.infiniteScrollComplete');
     });
   };
+  
+ /**
+ $scope.loadMore = function() {
+    $http.get('http://wallweight.com/api/get_recent_posts?page='+$scope.page).success(function(items) {
+	 var i = items.posts.length;
+	 $scope.posts = $scope.posts.concat(items.posts);
+	 $scope.posts.push(items);
+	  console.log(items.posts[0]);
+      $scope.$broadcast('scroll.infiniteScrollComplete');
+	  console.log($scope.page);
+	  $scope.page +=1;
+    });
+  }*/
   
   /*checks for new items every 20 seconds and loads it into the newItems array */
    var CheckNewItems = function(){

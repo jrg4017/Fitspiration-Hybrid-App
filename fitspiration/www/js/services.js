@@ -56,6 +56,25 @@ angular.module('fitspiration.services', [])
 		}
 	};
 })
+
+/**
+.factory('NewsfeedService', fucntion($http){
+	var items = [];
+	
+	return{
+		/* get a json response of post object from request url */ /**
+		getPosts: function(){
+			/* returns a promise
+			then is used here because we want to save for further use */ /**
+			return $http.get("https://jrg4017.github.io/newsfeed").then(function(response){
+				items = response;
+				return items; /* also returns a promise *//**
+			}); 
+		}
+		
+	}
+})
+*/
 /**
   * gets the chat 
   */
