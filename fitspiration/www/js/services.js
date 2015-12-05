@@ -126,6 +126,9 @@ angular.module('fitspiration.services', [])
     }
   };
 })
+
+
+
 /**
 .factory('Scoreboard', function() {
   // Might use a resource here that returns a JSON array

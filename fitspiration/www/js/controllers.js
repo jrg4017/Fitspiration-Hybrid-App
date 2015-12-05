@@ -83,6 +83,13 @@ angular.module('fitspiration.controllers', [])
 })*/
 
 /**
+.controller('TeamCtrl', function($scope, TeamService){
+	$scope.team = TeamService.all();
+})*/
+
+.controller('TeamCtrl', function($scope){})
+
+/**
   * gets the log in and throws ror if incorrect, goes to app
   */
 .controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $state) {

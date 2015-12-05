@@ -39,7 +39,6 @@ angular.module('fitspiration', ['ionic', 'fitspiration.controllers', 'fitspirati
   })
 
   // Each tab has its own nav history stack:
-
   .state('tab.dash', {
     url: '/dash',
     views: {
@@ -49,25 +48,6 @@ angular.module('fitspiration', ['ionic', 'fitspiration.controllers', 'fitspirati
       }
     }
   })
-
-  .state('tab.chats', {
-      url: '/chats',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
-        }
-      }
-    })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
-        }
-      }
-    })
 	
 	.state('login', { //for when the app launches and needs a team log in
       url: '/login',
@@ -85,13 +65,43 @@ angular.module('fitspiration', ['ionic', 'fitspiration.controllers', 'fitspirati
 	  }
   })
   
-  /**.state('tab.scoreboard', {
-	  url: '/scoreboard/:teamId',
+  /**.state('tab.team', {
+	  url: '/team',
+	  views: {
+		  'tab-team': {
+			  templateUrl: 'templates/tab-team.html',
+			  controller: 'AccountCtrl'
+		  }
+	  }
+  })*/
+  
+   /**.state('tab.chats', {
+      url: '/chats',
+      views: {
+        'tab-chats': {
+          templateUrl: 'templates/tab-chats.html',
+          controller: 'ChatsCtrl'
+        }
+      }
+    })
+    .state('tab.chat-detail', {
+      url: '/chats/:chatId',
+      views: {
+        'tab-chats': {
+          templateUrl: 'templates/chat-detail.html',
+          controller: 'ChatDetailCtrl'
+        }
+      }
+    })*/
+  
+  
+  .state('tab.scoreboard', {
+	  url: '/scoreboard',
 	  views: {
 		  templateUrl: 'templates/tab-scoreboard.html',
 		  controller: 'ScoreboardCtrl'
 	  }
-  })*/
+  })
   
   
   .state('tab.account', {

@@ -1,13 +1,10 @@
 /* Empty. Add your own CSS if you like */
 /* theme color: #00bfa5 */
 
-/*.dark-background{
-	background-color: #00bfa5
+#sub-title {
+	font-weight: bold;
+	font-size: 1.5em;
 }
-
-.dark-background h1, h3{
-	color: white;
-}*/
 /********************************************************************************/
 /********* Deals with the spacing between icon menus on both platforms **********/
 /*.platform-android #spacing-top-bar{
