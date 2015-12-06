@@ -65,15 +65,15 @@ angular.module('fitspiration', ['ionic', 'fitspiration.controllers', 'fitspirati
 	  }
   })
   
-  /**.state('tab.team', {
+  .state('tab.team', {
 	  url: '/team',
 	  views: {
 		  'tab-team': {
 			  templateUrl: 'templates/tab-team.html',
-			  controller: 'AccountCtrl'
+			  controller: 'TeamCtrl'
 		  }
 	  }
-  })*/
+  })
   
    /**.state('tab.chats', {
       url: '/chats',

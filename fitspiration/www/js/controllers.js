@@ -75,19 +75,14 @@ angular.module('fitspiration.controllers', [])
 
 .controller('ChallengeCtrl', function($scope){})
 
-/**.controller('ScoreboardCtrl', function($scope, Scoreboard){
-	$scope.team = Scoreboard.all();
-  $scope.remove = function(team) {
-    Scoreboard.remove(team);
-  };
-})*/
 
-/**
 .controller('TeamCtrl', function($scope, TeamService){
-	$scope.team = TeamService.all();
-})*/
+	$scope.teams = TeamService.all();
+})
 
-.controller('TeamCtrl', function($scope){})
+.controller('ScoreboardCtrl', function($scope, TeamService){
+	$scope.scores = TeamService.all();
+})
 
 /**
   * gets the log in and throws ror if incorrect, goes to app

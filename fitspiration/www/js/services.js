@@ -127,7 +127,107 @@ angular.module('fitspiration.services', [])
   };
 })
 
-
+.factory('TeamService', function(){
+	var teams = [{
+		id: 0,
+		name: 'Tacos',
+		score: 300,
+		action: [{
+			imageURL: 'img/ic_play_arrow',
+			title: 'Day 1 Challenge',
+			response: 'Your team uploaded a video for this challenge'
+		},{
+			imageURL: 'img/ic_star',
+			title: 'Day 1 Challenge',
+			response: 'Your team was awarded 200pts'
+		},{
+			imageURL: 'img/ic_play_arrow',
+			title: 'Day 2 Challenge',
+			response: 'Your team uploaded a video for this challenge'
+		},{
+			imageURL: 'img/ic_play_arrow',
+			title: 'Day 3 Challenge',
+			response: 'Your team uploaded a video for this challenge'
+		},{
+			imageURL: 'img/ic_star',
+			title: 'Day 3 Challenge',
+			res: 'Your team was awarded 100pts'
+		}]
+	},{
+		id: 1, 
+		name: 'LadyLifts',
+		score: 350,
+		response: [{
+			imageURL: 'img/ic_play_arrow',
+			title: 'Day 1 Challenge',
+			response: 'Your team uploaded a video for this challenge'
+		},{
+			imageURL: 'img/ic_star',
+			title: 'Day 1 Challenge',
+			response: 'Your team was awarded 200pts'
+		},{
+			imageURL: 'img/ic_play_arrow',
+			title: 'Day 2 Challenge',
+			response: 'Your team uploaded a video for this challenge'
+		},{
+			imageURL: 'img/ic_star',
+			title: 'Day 2 Challenge',
+			response: 'Your team was awarded 50pts'
+		},{
+			imageURL: 'img/ic_play_arrow',
+			title: 'Day 3 Challenge',
+			response: 'Your team uploaded a video for this challenge'
+		},{
+			imageURL: 'img/ic_star',
+			title: 'Day 3 Challenge',
+			response: 'Your team was awarded 100pts'
+		}]
+	},{
+		id: 2,
+		name: 'E-Board',
+		score: 200,
+		action: [{
+			imageURL: 'img/ic_play_arrow',
+			title: 'Day 1 Challenge',
+			response: 'Your team uploaded a video for this challenge'
+		},{
+			imageURL: 'img/ic_star',
+			title: 'Day 1 Challenge',
+			response: 'Your team was awarded 200pts'
+		},{
+			imageURL: 'img/ic_play_arrow',
+			title: 'Day 2 Challenge',
+			response: 'Your team uploaded a video for this challenge'
+		}]
+	},{
+		id: 3,
+		name: 'Burritos',
+		score: 250, 
+		action: [{
+			imageURL: 'img/ic_play_arrow',
+			title: 'Day 1 Challenge',
+			response: 'Your team uploaded a video for this challenge'
+		},{
+			imageURL: 'img/ic_star',
+			title: 'Day 1 Challenge',
+			response: 'Your team was awarded 200pts'
+		},{
+			imageURL: 'img/ic_play_arrow',
+			title: 'Day 2 Challenge',
+			response: 'Your team uploaded a video for this challenge'
+		},{
+			imageURL: 'img/ic_star',
+			title: 'Day 2 Challenge',
+			response: 'Your team was awarded 50pts'
+		}]
+	}];
+	
+	return{
+		all: function(){
+			return teams;
+		}
+	};
+})
 
 /**
 .factory('Scoreboard', function() {
