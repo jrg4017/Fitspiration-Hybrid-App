@@ -8,8 +8,8 @@
     </div>
 	<div class="list card">
 		<!--for when set up-->
-		<ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="team in scores">
-			<h2>{{team.score}}</h2><p>    {{team.name}}</p>
+		<ion-item ng-repeat="score in scores">
+			<h2>{{score.score}}</h2>{{score.name}}
 		</ion-item>
 	</div>
     </ion-list>

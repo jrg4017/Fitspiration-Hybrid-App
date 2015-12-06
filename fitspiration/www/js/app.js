@@ -75,6 +75,16 @@ angular.module('fitspiration', ['ionic', 'fitspiration.controllers', 'fitspirati
 	  }
   })
   
+  .state('tab.scoreboard',{
+	  url: '/scoreboard',
+	  views: {
+		  'tab-scoreboard':{
+			  templateUrl: 'templates/tab-scoreboard.html',
+			  controller: 'ScoreboardCtrl'
+		  }
+	  }
+  })
+  
    /**.state('tab.chats', {
       url: '/chats',
       views: {
@@ -93,16 +103,6 @@ angular.module('fitspiration', ['ionic', 'fitspiration.controllers', 'fitspirati
         }
       }
     })*/
-  
-  
-  .state('tab.scoreboard', {
-	  url: '/scoreboard',
-	  views: {
-		  templateUrl: 'templates/tab-scoreboard.html',
-		  controller: 'ScoreboardCtrl'
-	  }
-  })
-  
   
   .state('tab.account', {
     url: '/account',

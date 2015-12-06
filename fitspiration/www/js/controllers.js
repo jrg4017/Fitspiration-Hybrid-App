@@ -81,7 +81,7 @@ angular.module('fitspiration.controllers', [])
 })
 
 .controller('ScoreboardCtrl', function($scope, TeamService){
-	$scope.scores = TeamService.all();
+	$scope.scores = TeamService.sort();
 })
 
 /**
