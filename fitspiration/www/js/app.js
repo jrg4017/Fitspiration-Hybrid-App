@@ -35,7 +35,12 @@ angular.module('fitspiration', ['ionic', 'fitspiration.controllers', 'fitspirati
     .state('tab', {
     url: '/tab',
     abstract: true,
-    templateUrl: 'templates/tabs.html'
+    templateUrl: function(){
+		if(ionic.Platform.isAndroid()){
+		return 'templates/tabs-android.html';
+		}
+		return "templates/tabs.html";
+	}
   })
 
   // Each tab has its own nav history stack:
@@ -53,6 +58,18 @@ angular.module('fitspiration', ['ionic', 'fitspiration.controllers', 'fitspirati
       url: '/login',
       templateUrl: 'templates/login.html',
       controller: 'LoginCtrl'
+	})
+	
+	.state('register', { //launches if button is clicked
+		url: '/register',
+		templateUrl: 'templates/register.html',
+		controller: 'RegisterCtrl'
+	})
+	
+	.state('upload', { //launches if button is clicked
+		url: '/upload',
+		templateUrl: 'templates/upload.html',
+		controller: 'UploadCtrl'
 	})
   
   .state('tab.challenge', {
@@ -83,7 +100,7 @@ angular.module('fitspiration', ['ionic', 'fitspiration.controllers', 'fitspirati
 			  controller: 'ScoreboardCtrl'
 		  }
 	  }
-  })
+  });
   
    /**.state('tab.chats', {
       url: '/chats',
@@ -103,16 +120,7 @@ angular.module('fitspiration', ['ionic', 'fitspiration.controllers', 'fitspirati
         }
       }
     })*/
-  
-  .state('tab.account', {
-    url: '/account',
-    views: {
-      'tab-team': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
-      }
-    }
-  });
+ 
  
   
 

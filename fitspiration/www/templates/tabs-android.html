@@ -1,0 +1,26 @@
+<!--
+Create tabs with an icon and label, using the tabs-positive style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+-->
+<ion-tabs class="tabs-striped tabs-top tabs-background-balanced tabs-color-light">
+
+  <!-- Newsfeed Tab -->
+  <ion-tab title="Newsfeed" class="tabs-theme-color" icon-off="ion-ios-paper-outline" icon-on="ion-ios-paper" href="#/tab/dash">
+    <ion-nav-view name="tab-dash"></ion-nav-view>
+  </ion-tab>
+  
+  <!-- Team Tab -->
+  <ion-tab title="Team" class="tabs-theme-color" icon-off="ion-ios-people-outline" icon-on="ion-ios-people" href="#/tab/team">
+    <ion-nav-view name="tab-team"></ion-nav-view>
+  </ion-tab>
+  
+   <!-- Challenge Tab -->
+  <ion-tab title="Challenge" class="tabs-theme-color" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" href="#/tab/challenge">
+    <ion-nav-view name="tab-challenge"></ion-nav-view>
+  </ion-tab>
+  <!-- Scoreboard Tab -->
+  <ion-tab title="Scoreboard" class="tabs-theme-color" icon-off="ion-ios-star-outline" icon-on="ion-ios-star" href="#/tab/scoreboard">
+	<ion-nav-view name="tab-scoreboard"></ion-nav-view>
+  </ion-tab>
+</ion-tabs>

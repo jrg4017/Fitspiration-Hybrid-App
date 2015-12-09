@@ -1,9 +1,83 @@
 /* Empty. Add your own CSS if you like */
 /* theme color: #00bfa5 */
-
+/**************************************************
+     For solid color background
+***************************************************/
 #sub-title {
 	font-weight: bold;
 	font-size: 1.5em;
+}
+/**************************************************
+     For solid color background
+***************************************************/
+.theme-color{
+	background-color: #00BFA5;
+	border-color: #00BFA5; /*else there will be a white line*/
+}
+.platform-android .theme-color{ color: white; /*for the view-title color*/}
+.theme-color { color: #00BFA5; }
+.theme-color img { margin: -1em 0 -2em 0; }
+.theme-color h1, h4, button{ color: white; }
+/**************************************************
+     For tabs background
+***************************************************/
+.tabs-theme-color{
+	background-color: #00BFA5 !important;
+}
+/* has to be platform specifc else the 
+ android one won't show anything       */
+.platform-ios .tab-item.tab-item-active, 
+.platform-ios .tab-item.active, 
+.platform-ios .tab-item.activated {
+    color: #00BFA5 !important;
+}
+/**************************************************
+    Floating button (material design)
+***************************************************/
+.float-button{
+	background-color: #00BFA5;
+	opacity: 0.9;
+	color: white;
+	border-radius: 50%;
+	/*border-radius:15% 0 0 0;*/
+	width: 30px;
+	padding: 25px;
+	font-size: 40px;
+	position: fixed;
+	bottom: 5%; /* Adjust height */
+	right: 5%; /* Adjust position */
+	z-index: 1000;
+}
+.float-button .height_fix { margin-top: 100%; }
+.float-button .content {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  margin-top: -20px;
+  color: white;
+}
+/**************************************************
+    Button and link formatting
+***************************************************/
+.button-gray { 
+	background-color: #c1c1c1;
+	color: white;
+	font-weight: bold;
+}
+.link h4 a{
+	font-size: 1.3em;
+	text-decoration: none;
+	color: white;
+}
+.title-color{ color: #00BFA5 !important; }
+/**************************************************
+    Misc. formatting for html tag items
+***************************************************/     
+hr {
+	opacity: .4;
 }
 /********************************************************************************/
 /********* Deals with the spacing between icon menus on both platforms **********/

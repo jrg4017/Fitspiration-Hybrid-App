@@ -1,4 +1,18 @@
-<ion-view view-title="Scoreboard">
+<ion-view view-title="Scoreboard" name="scoreboard-view">
+ 
+<ion-nav-bar class="theme-color"></ion-nav-bar>
+
+<ion-nav-view>
+	<!-- specific styling for the ios app, plus a button to upload items -->
+	<div class="bar bar-header" ng-if="isAndroid == false">
+		<div ng-if="isAndroid == false">
+		<div class="h1 title title-color"></div>
+			<button class="button button-clear button-positive" side="secondary" ng-click="addItem()">
+				<i class="ion-plus button-clear"></i>
+			</button>
+		</div>    
+	</div>
+</ion-nav-view>
   <ion-content>
     <ion-list>
 	<div class="list card">
@@ -8,8 +22,8 @@
     </div>
 	<div class="list card">
 		<!--for when set up-->
-		<ion-item ng-repeat="score in scores">
-			<h2>{{score.score}}</h2>{{score.name}}
+		<ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="team in teams">
+			<h2>{{team.score}}</h2><p>    {{team.name}}</p>
 		</ion-item>
 	</div>
     </ion-list>

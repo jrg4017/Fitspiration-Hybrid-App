@@ -1,7 +1,5 @@
 angular.module('fitspiration.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
-
 .controller('ChatsCtrl', function($scope, Chats) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -24,7 +22,9 @@ angular.module('fitspiration.controllers', [])
 /**
   * to create and control an infinite scrollable newsfeed
   */
-.controller('NewsfeedCtrl', function($scope, $timeout, PersonService) {
+.controller('NewsfeedCtrl', function($scope, $timeout, PersonService, $state) {
+  //scope vars
+  $scope.isAndroid = ionic.Platform.isAndroid();
   $scope.items = [];
   $scope.newItems = [];
   $scope.page = 1;
@@ -57,6 +57,10 @@ angular.module('fitspiration.controllers', [])
       $scope.items = $scope.items.concat(items);
       $scope.$broadcast('scroll.infiniteScrollComplete');
     });
+	
+	$scope.addItem = function() {
+		$state.go('upload');
+	}
   };
   
   /*checks for new items every 20 seconds and loads it into the newItems array */
@@ -73,15 +77,22 @@ angular.module('fitspiration.controllers', [])
   CheckNewItems();
 })
 
-.controller('ChallengeCtrl', function($scope){})
+.controller('UploadCtrl', function($scope){
+	
+})
+.controller('ChallengeCtrl', function($scope){
+	$scope.isAndroid = ionic.Platform.isAndroid();
+})
 
 
 .controller('TeamCtrl', function($scope, TeamService){
 	$scope.teams = TeamService.all();
+	$scope.isAndroid = ionic.Platform.isAndroid();
 })
 
 .controller('ScoreboardCtrl', function($scope, TeamService){
-	$scope.scores = TeamService.sort();
+	$scope.scores = TeamService.all();
+	$scope.isAndroid = ionic.Platform.isAndroid();
 })
 
 /**
@@ -100,12 +111,14 @@ angular.module('fitspiration.controllers', [])
             });
         });
     }
+	/* grabs the register view if link is clicked */
+	$scope.register = function() {
+		$state.go('register');
+	}
 })
 
-//original
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
+.controller('RegisterCtrl', function($scope){
+	
+	/* grabs the login view if link is clicked */
 });
 

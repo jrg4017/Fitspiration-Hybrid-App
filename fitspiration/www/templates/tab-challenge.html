@@ -1,4 +1,19 @@
-<ion-view view-title="Daily Challenge" name="challenge-view" >
+<ion-view view-title="Challenge" name="challenge-view">
+ 
+<ion-nav-bar class="theme-color"></ion-nav-bar>
+
+<ion-nav-view>
+	<!-- specific styling for the ios app, plus a button to upload items -->
+	<div class="bar bar-header" ng-if="isAndroid == false">
+		<div ng-if="isAndroid == false">
+		<div class="h1 title title-color"></div>
+			<button class="button button-clear button-positive" side="secondary" ng-click="addItem()">
+				<i class="ion-plus button-clear"></i>
+			</button>
+		</div>    
+	</div>
+</ion-nav-view>
+
 <ion-content>
 	<ion-list>
 		<div class="item card" ng-if="!items.length">
@@ -8,3 +23,12 @@
 		</div>
 	</ion-list>
 </ion-content>
+<!-- adds a floating button as per material design for android -->
+<div class="float-button" ng-if="isAndroid != false">
+	<span class="height-fix">
+		<a class="content" href="" ng-click="addItem()">
+			<i class="ion-ios-plus-empty"></i>
+		</a>
+	</span>
+</div>
+</ion-view>

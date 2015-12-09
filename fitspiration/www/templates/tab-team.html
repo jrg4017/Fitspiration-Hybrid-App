@@ -1,4 +1,12 @@
-<ion-view view-title="Team">
+<ion-view view-title="Team {{team.name}}" name="team-view">
+ 
+<ion-nav-bar class="theme-color"></ion-nav-bar>
+
+<ion-nav-view>
+	<!-- specific styling for the ios app, plus a button to upload items -->
+	<div class="bar bar-header" ng-if="isAndroid == false"></div><!-- to keep consistentcy -->
+</ion-nav-view>
+
   <ion-content>
     <ion-list>
 	<div class="list card">

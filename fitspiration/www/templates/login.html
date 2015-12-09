@@ -1,20 +1,23 @@
-<ion-view view-title="Login" name="login-view" >
-  <ion-content class="padding">
-		<h1 class="text-center"> Welcome to Fitspiration! </h1>
-		<br>
-      <div class="list list-inset">
-          <label class="item item-input">
-              <input type="text" placeholder="Username" ng-model="data.username">
-          </label>
-          <label class="item item-input">
-              <input type="password" placeholder="Password" ng-model="data.password">
-          </label>
-      </div>
-      <button class="button button-block button-positive" ng-click="login()">Login</button>
-	  <br><br>
-	  <h3>If you don't have an account yet:</h3><br>
-	  <button class="button button-block button-outline button-positive" ng-click="addToTeam()">Join a Team</button>
-	  <button class="button button-block button-outline button-positive" ng-click="register()">Register a Team</button>
-	  
+<ion-view view-title="" name="login-view">
+<ion-nav-bar class="theme-color"></ion-nav-bar>
+  <ion-content class="padding theme-color">
+	<div class="text-center">
+		<img src="img/logo.png" width="150px" height="150px"/>
+		<h1> FitSpiration</h1>
+		<br><br><br>
+	</div>
+	<div class="list list-inset">
+		<label class="item item-input">
+			<input type="text" placeholder="Team Name" ng-model="data.username">
+		</label>
+		<label class="item item-input">
+			<input type="password" placeholder="Password" ng-model="data.password">
+		</label>
+	</div>
+    <button class="button button-block button-gray" ng-click="login()">LOG IN</button>
+	<br><br>
+	<div class="text-center link">
+		<h4><a href="" ng-click="register()">Don't have a team? Sign up here!</a></h4>
+	</div>
   </ion-content>
 </ion-view>

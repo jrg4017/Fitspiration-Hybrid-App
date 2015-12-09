@@ -216,7 +216,7 @@ angular.module('fitspiration.services', [])
 				imageURL: 'img/ic_star',
 				title: 'Day 2 Challenge',
 				response: 'Your team was awarded 50pts'
-}}}}];*/ }];
+}}}];*/ }];
 	
 	/**teamHistory = [{
 		0: {
