@@ -1,11 +1,23 @@
 /* Empty. Add your own CSS if you like */
 /* theme color: #00bfa5 */
 /**************************************************
-     For solid color background
+    Team and Scoreboard page formatting
 ***************************************************/
-#sub-title {
+.sub-title {
 	font-weight: bold;
 	font-size: 1.5em;
+	color: #00BFA5;
+}
+.image-scoreboard{ background-image: url('../img/star_medal.png'); }	
+.ts h2{ font-weight: bold; }
+#ts {
+	padding: 4.5em;
+}
+.image-team{ background-image: url('../img/star.png'); }	
+.image-scoreboard, .image-team{
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: auto 100%;
 }
 /**************************************************
      For solid color background

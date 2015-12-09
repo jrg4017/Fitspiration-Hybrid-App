@@ -92,6 +92,7 @@ angular.module('fitspiration.controllers', [])
 
 .controller('ScoreboardCtrl', function($scope, TeamService){
 	$scope.scores = TeamService.all();
+	$scope.highest = TeamService.getHighest();
 	$scope.isAndroid = ionic.Platform.isAndroid();
 })
 

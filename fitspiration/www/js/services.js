@@ -302,23 +302,25 @@ angular.module('fitspiration.services', [])
 	return{
 		all: function(){
 			return teams;
-		}
-		/**scoreSort: function(){
-			var score = [];
+		},
+		getHighest: function() {
+			var highest = 0;
+			var name = "";
+			var id = 0;
 			
-			/*
-			 * sorts the function low to high 
-			 * passed in function makes sure this happens, else incorrect order
-			 *//**
-			var temp = teams; 
-			temp.sort(function (a,b) { return a-b } );
-			//sorts it high to low
-			for(int i = (temp.length -1); i > 0; i--){
-				var score[] = temp[i]; 
+			for(var i =0; i < teams.length; i++){
+				if(teams[i].score > highest){
+					highest = teams[i].score;
+					name = teams[i].name;
+					id = teams[i].id;
+				}
 			}
-			
-			return score;
-		}*/
+			var temp = [];
+			temp['id'] = id;
+			temp['score'] = highest;
+			temp['name'] = name;
+			return temp;
+		}
 	};
 })
 
