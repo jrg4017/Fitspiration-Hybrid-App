@@ -10,14 +10,17 @@
 }
 .image-scoreboard{ background-image: url('../img/star_medal.png'); }	
 .ts h2{ font-weight: bold; }
-#ts {
-	padding: 4.5em;
-}
+#ts { padding: 4.5em; }
 .image-team{ background-image: url('../img/star.png'); }	
 .image-scoreboard, .image-team{
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: auto 100%;
+}
+.card-score { 
+	margin-top: 2em;
+	border: none !important;
+	border-color: white !important;
 }
 /**************************************************
      For solid color background

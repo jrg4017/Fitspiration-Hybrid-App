@@ -14,18 +14,20 @@
 	</div>
 </ion-nav-view>
   <ion-content>
-    <ion-list>
 	<div class="list card ts">
       <ion-item class="text-center image-scoreboard">
 		<h1>{{highest.name}}</h1>
 		<h2>{{highest.score}}</h2>
       </ion-item>
     </div>
+    <ion-list>
 	<div class="list card">
-		<h2 class="text-center sub-title">ALL SCORES</h2>
+		<ion item class="text-center">
+			<h2 class="sub-title item-divider">ALL SCORES</h2>
+		</ion-item>
 		<!--for when set up-->
-		<ion-item class="item-remove-animate" ng-repeat="team in scores">
-			<h2>{{team.score}} points | Team {{team.name}}</h2>
+		<ion-item class="item-remove-animate" ng-repeat="team in scores" class="item-icon-left">
+          <i class="icon ion-star icon-energize"></i>  {{team.score}} points | Team {{team.name}}
 		</ion-item>
 	</div>
     </ion-list>
