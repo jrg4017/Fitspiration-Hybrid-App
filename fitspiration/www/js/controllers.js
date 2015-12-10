@@ -61,10 +61,6 @@ angular.module('fitspiration.controllers', [])
 	$scope.addItem = function() {
 		$state.go('upload');
 	}
-	
-	$scope.upload = function(){
-		$state.go('upload');
-	}
   };
   
   /*checks for new items every 20 seconds and loads it into the newItems array */

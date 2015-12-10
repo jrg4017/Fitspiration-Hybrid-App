@@ -1,7 +1,11 @@
 <ion-view view-title="Newsfeed" name="newsfeed-view">
  
-<ion-nav-bar class="theme-color">
-<a class="button button-icon button-clear button-index " ng-click="upload()">CLICK</a>
+<ion-nav-bar class="nav-bar">
+	<div ng-if="isAndroid == false"><ion-nav-buttons side="right">
+		<a class="button button-icon button-clear "ng-click="addItem()">
+			<i class="ion-plus button-clear"></i>
+		</a>
+    </ion-nav-buttons></div>
 </ion-nav-bar>
 
 <!--<ion-nav-view>
