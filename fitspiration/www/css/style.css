@@ -25,10 +25,8 @@
 /**************************************************
      For solid color background
 ***************************************************/
-.theme-color{
-	background-color: #00BFA5;
-	border-color: #00BFA5; /*else there will be a white line*/
-}
+.login, .platform-android .theme-color{ background-color: #00BFA5; }
+.theme-color{ border-color: #00BFA5; /*else there will be a white line*/}
 .platform-android .theme-color{ color: white; /*for the view-title color*/}
 .theme-color { color: #00BFA5; }
 .theme-color img { margin: -1em 0 -2em 0; }
@@ -93,6 +91,16 @@
 ***************************************************/     
 hr {
 	opacity: .4;
+}
+.button-index{
+	z-index: 0 !important;
+	position: relative !important;
+	margin-left: 2em;
+	
+}
+
+.button-index:hover{
+	background-color: orange;
 }
 /********************************************************************************/
 /********* Deals with the spacing between icon menus on both platforms **********/
