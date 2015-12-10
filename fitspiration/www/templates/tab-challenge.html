@@ -1,18 +1,11 @@
 <ion-view view-title="Challenge" name="challenge-view">
- 
-<ion-nav-bar class="theme-color"></ion-nav-bar>
-
-<ion-nav-view>
-	<!-- specific styling for the ios app, plus a button to upload items -->
-	<div class="bar bar-header" ng-if="isAndroid == false">
-		<div ng-if="isAndroid == false">
-		<div class="h1 title title-color"></div>
-			<button class="button button-clear button-positive" side="secondary" ng-click="addItem()">
-				<i class="ion-plus button-clear"></i>
-			</button>
-		</div>    
-	</div>
-</ion-nav-view>
+<ion-nav-bar class="nav-bar">
+	<ion-nav-buttons side="right">
+		<a class="button button-icon button-clear hide-show "ng-click="addItem()">
+			<i class="ion-plus button-clear"></i>
+		</a>
+    </ion-nav-buttons>
+</ion-nav-bar>
 
 <ion-content>
 	<ion-list>

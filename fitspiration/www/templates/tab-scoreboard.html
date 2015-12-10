@@ -1,18 +1,5 @@
 <ion-view view-title="Scoreboard" name="scoreboard-view">
- 
-<ion-nav-bar class="theme-color"></ion-nav-bar>
-
-<ion-nav-view>
-	<!-- specific styling for the ios app, plus a button to upload items -->
-	<div class="bar bar-header" ng-if="isAndroid == false">
-		<div ng-if="isAndroid == false">
-		<div class="h1 title title-color"></div>
-			<button class="button button-clear button-positive" side="secondary" ng-click="addItem()">
-				<i class="ion-plus button-clear"></i>
-			</button>
-		</div>    
-	</div>
-</ion-nav-view>
+<ion-nav-bar class="nav-bar"></ion-nav-bar>
   <ion-content>
 	<div class="list card ts">
       <ion-item class="text-center image-scoreboard">

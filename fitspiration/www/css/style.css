@@ -92,9 +92,12 @@
 hr {
 	opacity: .4;
 }
-
-/********************************************************************************/
-/********* Deals with the spacing between icon menus on both platforms **********/
+/**************************************************
+    Hides for android devices
+***************************************************/  
+.platform-android .hide-show{
+	display: none;
+}
 /*.platform-android #spacing-top-bar{
 	margin-top: 6em;
 }
