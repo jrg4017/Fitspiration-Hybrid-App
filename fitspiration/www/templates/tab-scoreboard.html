@@ -22,12 +22,12 @@
     </div>
     <ion-list>
 	<div class="list card">
-		<ion item class="text-center">
-			<h2 class="sub-title item-divider">ALL SCORES</h2>
+		<ion-item class="text-center">
+			<h2 class="sub-title">ALL SCORES</h2>
 		</ion-item>
 		<!--for when set up-->
 		<ion-item class="item-remove-animate" ng-repeat="team in scores" class="item-icon-left">
-          <i class="icon ion-star icon-energize"></i>  {{team.score}} points | Team {{team.name}}
+          <i class="icon ion-star energized"></i>  {{team.score}} points | Team {{team.name}}
 		</ion-item>
 	</div>
     </ion-list>
