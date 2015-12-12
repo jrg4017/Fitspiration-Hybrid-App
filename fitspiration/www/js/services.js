@@ -127,183 +127,33 @@ angular.module('fitspiration.services', [])
   };
 })
 
-.factory('TeamService', function(){
-	var teams = [{
-		id: 0,
-		name: 'Tacos',
-		score: 300
-		/**teamHistory: {{
-				imageURL: 'img/ic_play_arrow',
-				title: 'Day 1 Challenge',
-				response: 'Your team uploaded a video for this challenge'
-			},{
-				imageURL: 'img/ic_star',
-				title: 'Day 1 Challenge',
-				response: 'Your team was awarded 200pts'
-			},{
-				imageURL: 'img/ic_play_arrow',
-				title: 'Day 2 Challenge',
-				response: 'Your team uploaded a video for this challenge'
-			},{
-				imageURL: 'img/ic_play_arrow',
-				title: 'Day 3 Challenge',
-				response: 'Your team uploaded a video for this challenge'
-			},{
-				imageURL: 'img/ic_star',
-				title: 'Day 3 Challenge',
-				res: 'Your team was awarded 100pts'
-	}}},{*/ },{
-		id: 1, 
-		name: 'LadyLifts',
-		score: 350
-		/*teamHistory: {{
-				imageURL: 'img/ic_play_arrow',
-				title: 'Day 1 Challenge',
-				response: 'Your team uploaded a video for this challenge'
-			},{
-				imageURL: 'img/ic_star',
-				title: 'Day 1 Challenge',
-				response: 'Your team was awarded 200pts'
-			},{
-				imageURL: 'img/ic_play_arrow',
-				title: 'Day 2 Challenge',
-				response: 'Your team uploaded a video for this challenge'
-			},{
-				imageURL: 'img/ic_star',
-				title: 'Day 2 Challenge',
-				response: 'Your team was awarded 50pts'
-			},{
-				imageURL: 'img/ic_play_arrow',
-				title: 'Day 3 Challenge',
-				response: 'Your team uploaded a video for this challenge'
-			},{
-				imageURL: 'img/ic_star',
-				title: 'Day 3 Challenge',
-				response: 'Your team was awarded 100pts'
-	}}},{*/},{
-		id: 2,
-		name: 'E-Board',
-		score: 200
-		/**teamHistory: {{
-			imageURL: 'img/ic_play_arrow',
-				title: 'Day 1 Challenge',
-				response: 'Your team uploaded a video for this challenge'
-			},{
-				imageURL: 'img/ic_star',
-				title: 'Day 1 Challenge',
-				response: 'Your team was awarded 200pts'
-			},{
-				imageURL: 'img/ic_play_arrow',
-				title: 'Day 2 Challenge',
-				response: 'Your team uploaded a video for this challenge'
-	}}},{*/ },{
-		id: 3,
-		name: 'Burritos',
-		score: 250 
-		/**teamHistory: {{
-				imageURL: 'img/ic_play_arrow',
-				title: 'Day 1 Challenge',
-				response: 'Your team uploaded a video for this challenge'
-			},{
-				imageURL: 'img/ic_star',
-				title: 'Day 1 Challenge',
-				response: 'Your team was awarded 200pts'
-			},{
-				imageURL: 'img/ic_play_arrow',
-				title: 'Day 2 Challenge',
-				response: 'Your team uploaded a video for this challenge'
-			},{
-				imageURL: 'img/ic_star',
-				title: 'Day 2 Challenge',
-				response: 'Your team was awarded 50pts'
-}}}];*/ }];
-	
-	/**teamHistory = [{
-		0: {
-			{
-				imageURL: 'img/ic_play_arrow',
-				title: 'Day 1 Challenge',
-				response: 'Your team uploaded a video for this challenge'
-			},{
-				imageURL: 'img/ic_star',
-				title: 'Day 1 Challenge',
-				response: 'Your team was awarded 200pts'
-			},{
-				imageURL: 'img/ic_play_arrow',
-				title: 'Day 2 Challenge',
-				response: 'Your team uploaded a video for this challenge'
-			},{
-				imageURL: 'img/ic_play_arrow',
-				title: 'Day 3 Challenge',
-				response: 'Your team uploaded a video for this challenge'
-			},{
-				imageURL: 'img/ic_star',
-				title: 'Day 3 Challenge',
-				res: 'Your team was awarded 100pts'
-		}}, 1: {
-			{
-				imageURL: 'img/ic_play_arrow',
-				title: 'Day 1 Challenge',
-				response: 'Your team uploaded a video for this challenge'
-			},{
-				imageURL: 'img/ic_star',
-				title: 'Day 1 Challenge',
-				response: 'Your team was awarded 200pts'
-			},{
-				imageURL: 'img/ic_play_arrow',
-				title: 'Day 2 Challenge',
-				response: 'Your team uploaded a video for this challenge'
-			},{
-				imageURL: 'img/ic_star',
-				title: 'Day 2 Challenge',
-				response: 'Your team was awarded 50pts'
-			},{
-				imageURL: 'img/ic_play_arrow',
-				title: 'Day 3 Challenge',
-				response: 'Your team uploaded a video for this challenge'
-			},{
-				imageURL: 'img/ic_star',
-				title: 'Day 3 Challenge',
-				response: 'Your team was awarded 100pts'
-		}}, 2: {
-			{
-				imageURL: 'img/ic_play_arrow',
-				title: 'Day 1 Challenge',
-				response: 'Your team uploaded a video for this challenge'
-			},{
-				imageURL: 'img/ic_star',
-				title: 'Day 1 Challenge',
-				response: 'Your team was awarded 200pts'
-			},{
-				imageURL: 'img/ic_play_arrow',
-				title: 'Day 2 Challenge',
-				response: 'Your team uploaded a video for this challenge'
-		}}, 3: {
-			{
-				imageURL: 'img/ic_play_arrow',
-				title: 'Day 1 Challenge',
-				response: 'Your team uploaded a video for this challenge'
-			},{
-				imageURL: 'img/ic_star',
-				title: 'Day 1 Challenge',
-				response: 'Your team was awarded 200pts'
-			},{
-				imageURL: 'img/ic_play_arrow',
-				title: 'Day 2 Challenge',
-				response: 'Your team uploaded a video for this challenge'
-			},{
-				imageURL: 'img/ic_star',
-				title: 'Day 2 Challenge',
-				response: 'Your team was awarded 50pts'
-			}
+/**for getting local storage items**/
+.factory('$localStorage', ['$window', function($window){
+	return{
+		set: function(key, value){
+			$window.localStorage[key] = value;
+		},
+		get: function(key, defaultValue){
+			$window.localStorage[key] || defaultValue;
+		},
+		setObject: function(key, value){
+			$window.localStorage[key] = JSON.stringify(value);
+		},
+		getObject: function(key){
+			return JSON.parse($window.localStorage[key] || '{}');
 		}
-	}];*/
-	
+	}
+}])
+
+
+/*
+.factory('TeamService', function($http, $scope, $stateParams){
 	return{
 		all: function(){
-			return teams;
+			return $http.get('data/RIT_WRFC.json');
 		},
 		getHighest: function() {
+			
 			var highest = 0;
 			var name = "";
 			var id = 0;
@@ -322,7 +172,7 @@ angular.module('fitspiration.services', [])
 			return temp;
 		}
 	};
-})
+})*/
 
 
 /**

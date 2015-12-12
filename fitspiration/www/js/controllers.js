@@ -90,11 +90,25 @@ angular.module('fitspiration.controllers', [])
 	$scope.isAndroid = ionic.Platform.isAndroid();
 })
 
-.controller('ScoreboardCtrl', function($scope, TeamService){
-	$scope.scores = TeamService.all();
+/**.controller('ScoreboardCtrl', function($scope, TeamService){
+
+	
+	console.log($scope.scores);
+	/*var json = TeamService.all();
+	window.localStorage['json'] = JSON.stringify(json);
+	$scope.post = JSON.parse(window.localStorage['json'] || '{}');*/
+	/**
 	$scope.highest = TeamService.getHighest();
 	$scope.isAndroid = ionic.Platform.isAndroid();
-})
+})*/
+
+.controller('ScoreboardCtrl', ['$scope', '$http', function($scope, $http){
+	$scope.isAndroid = ionic.Platform.isAndroid();
+	
+	$http.get('js/data/RIT_WRFC.json').success( function(response){
+		$scope.scores = response;
+	});
+}])
 
 /**
   * gets the log in and throws ror if incorrect, goes to app

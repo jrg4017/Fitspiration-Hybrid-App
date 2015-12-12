@@ -20,12 +20,11 @@
 			<p>Upload your own content!</p>
 			<br>
 		</div>-->
-		
-		
-			<ion-item class="item item-avatar" >
-				<img src="{{item.user.picture.thumbnail}} " />
-				<h2>{{item.user.name.first}} {{item.user.name.last}}</h2>
-				<p>{{item.user.location.city}} {{item.user.password}}</p>
+			<ion-item class="item">
+				<div class="text-center"><img src="{{item.user.picture.thumbnail}}" /></div>
+					<h2>{{item.user.name.first}} {{item.user.name.last}}</h2>
+					<p>FROM: {{item.user.location.city}}, {{item.user.location.state}}</p>
+					<p>SHH ITS A SECRET: {{item.user.password}}</p>
 			</ion-item>
 		</div>
 	</ion-list>

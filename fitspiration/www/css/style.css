@@ -26,7 +26,7 @@
      For solid color background
 ***************************************************/
 .theme-color, .platform-android .nav-bar{ background-color: #00BFA5; }
-.nav-bar, .theme-color{ border-color: #00BFA5; /*else there will be a white line*/}
+.nav-bar, .theme-color{ border-color: #00BFA5 !important; /*else there will be a white line*/}
 .platform-android .nav-bar{ color: white; /*for the view-title color*/}
 .theme-color { color: #00BFA5; }
 .theme-color img { margin: -1em 0 -2em 0; }
