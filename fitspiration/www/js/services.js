@@ -1,59 +1,77 @@
 angular.module('fitspiration.services', [])
 
+.factory('JSONService', function($http){
+	return {
+		getOrgData: function(){
+			return $http.get('js/data/organizations.json').success(function(data){
+				return data
+			});
+		}, 
+		getTeamData: function(org){
+			var path = "js/data/" + org + ".json";
+			return $http.get(path).success(function(data){
+				return data;
+			});
+		},
+		getAllCaps: function(name){
+			//grab all caps of the name in question and then get the teams for the org
+			return name.split(' ').join('_').toUpperCase();
+			
+		}
+	};
+})
+
 /**
   * grabs the login page when the app starts and 
   * throws error when the credentials aren't correct
   */
-.factory('LoginService', function($q, $http) {
+.factory('LoginService', function($q, $http, $window, JSONService) {
     return {
-        loginUser: function(name, pw, org) {
+        verifyLogin: function(name, pw, org, orgFile) {
 			var orgTeams = [];
-			//grab all caps of the organization and then get the teams for the org
-			var allCapsOrg = org.split(' ').join('_').toUpperCase();
-
-			$http.get('js/data/organizations.json').success(function(response){
-				for(var i = 0; i < response.length; i++){
-					if(response[i]['orgName'] == allCapsOrg){
-						orgTeams = response[i]['teams'];
-					}
-				}
-				
-				 console.log(orgTeams);
-           
+			var allCapsOrg = JSONService.getAllCaps(org);
 			
+			for(var i = 0; i < orgFile.length; i++){
+				if(orgFile[i]['orgName'] == allCapsOrg){
+					orgTeams = orgFile[i]['teams'];
+				}
+			}
 			/*for testing purposes, the password is all secret
-			 * normally I'd change this so the password / username is encrypted
-			 * and not out in plain code, but I wanted to focus on other features
-			 */
+			* normally I'd change this so the password / username is encrypted
+			* and not out in plain code, but I wanted to focus on other features
+			*/
 			var bool = false;
 			for(i = 0; i < orgTeams.length; i++){
-				console.log(name + orgTeams[i]['name']);
 				if(name == orgTeams[i]['name']){
 					bool = true;
 				}
 			}
 			
-			 var deferred = $q.defer();
-            var promise = deferred.promise;
-			
-			
-            if ( bool == true && pw == 'secret') {
-                deferred.resolve('Welcome ' + name + '!');
-            } else {
-                deferred.reject('Wrong credentials.');
-            }
-            promise.success = function(fn) {
-                promise.then(fn);
-                return promise;
-            }
-            promise.error = function(fn) {
-                promise.then(null, fn);
-                return promise;
-            }
-            return promise;
-			});
-			
-        }
+			if(bool == true && pw == 'secret'){ return 'true';
+			}else{ return 'false'; }
+        },
+		loginUser: function(verify) {
+             var deferred = $q.defer();
+             var promise = deferred.promise;
+
+             if (verify == 'true') {
+                 deferred.resolve('Welcome '  +  name  + '!');
+             } else {
+                 deferred.reject('Wrong credentials.');
+             }
+             promise.success = function(fn) {
+                 promise.then(fn);
+                 return promise;
+             }
+             promise.error = function(fn) {
+                 promise.then(null, fn);
+                 return promise;
+             }
+             return promise;
+         },
+		 removeItem: function(index){
+			 $window.localStorage.removeItem($window.localStorage.key(index));
+		 }
     }
 })
 /**
@@ -85,133 +103,6 @@ angular.module('fitspiration.services', [])
 		}
 	};
 })
-
-/**
-.factory('NewsfeedService', fucntion($http){
-	var items = [];
-	
-	return{
-		/* get a json response of post object from request url */ /**
-		getPosts: function(){
-			/* returns a promise
-			then is used here because we want to save for further use */ /**
-			return $http.get("https://jrg4017.github.io/newsfeed").then(function(response){
-				items = response;
-				return items; /* also returns a promise *//**
-			}); 
-		}
-		
-	}
-})
-*/
-/*.factory('GetTeams', function($http){
-	return {
-		all: function(){
-			return $http.get('js/data/RIT_WRFC.json').then(function(response){
-				var teams = response;
-				return teams;
-			})
-	};
-})*/
-
-
-/**
-  * gets the chat 
-  */
-.factory('Chats', function() {
-  // Might use a resource here that returns a JSON array
-
-  // Some fake testing data
-  var chats = [{
-    id: 0,
-    name: 'Ben Sparrow',
-    lastText: 'You on your way?',
-    face: 'img/ben.png'
-  }, {
-    id: 1,
-    name: 'Max Lynx',
-    lastText: 'Hey, it\'s me',
-    face: 'img/max.png'
-  }, {
-    id: 2,
-    name: 'Adam Bradleyson',
-    lastText: 'I should buy a boat',
-    face: 'img/adam.jpg'
-  }, {
-    id: 3,
-    name: 'Perry Governor',
-    lastText: 'Look at my mukluks!',
-    face: 'img/perry.png'
-  }, {
-    id: 4,
-    name: 'Mike Harrington',
-    lastText: 'This is wicked good ice cream.',
-    face: 'img/mike.png'
-  }];
-
-  return {
-    all: function() {
-      return chats;
-    },
-    remove: function(chat) {
-      chats.splice(chats.indexOf(chat), 1);
-    },
-    get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
-        }
-      }
-      return null;
-    }
-  };
-})
-
-/*
-/**for getting local storage items
-.factory('$localStorage', ['$window', function($window){
-	return{
-		set: function(key, value){
-			$window.localStorage[key] = value;
-		},
-		get: function(key, defaultValue){
-			$window.localStorage[key] || defaultValue;
-		},
-		setObject: function(key, value){
-			$window.localStorage[key] = JSON.stringify(value);
-		},
-		getObject: function(key){
-			return JSON.parse($window.localStorage[key] || '{}');
-		}
-	}
-}])
-.factory('TeamService', function($http, $scope, $stateParams){
-	return{
-		all: function(){
-			return $http.get('data/RIT_WRFC.json');
-		},
-		getHighest: function() {
-			
-			var highest = 0;
-			var name = "";
-			var id = 0;
-			
-			for(var i =0; i < teams.length; i++){
-				if(teams[i].score > highest){
-					highest = teams[i].score;
-					name = teams[i].name;
-					id = teams[i].id;
-				}
-			}
-			var temp = [];
-			temp['id'] = id;
-			temp['score'] = highest;
-			temp['name'] = name;
-			return temp;
-		}
-	};
-})*/
-
 
 /**
   * allows the camera plug in to be functional

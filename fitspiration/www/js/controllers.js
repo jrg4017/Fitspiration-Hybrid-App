@@ -23,7 +23,7 @@ angular.module('fitspiration.controllers', [])
   * to create and control an infinite scrollable newsfeed
   */
 .controller('NewsfeedCtrl', function($scope, $timeout, PersonService, $state) {
-  //scope vars
+  //scope variables
   $scope.isAndroid = ionic.Platform.isAndroid();
   $scope.items = [];
   $scope.newItems = [];
@@ -84,45 +84,43 @@ angular.module('fitspiration.controllers', [])
 	$scope.isAndroid = ionic.Platform.isAndroid();
 })
 
-
-.controller('TeamCtrl', function($http, $scope){
+/**
+  * in charge of setting the necessary team information for the team page
+  * also sets the local storage org & team values for use
+  */
+.controller('TeamCtrl', function($http, $scope, JSONService){
 	$scope.isAndroid = ionic.Platform.isAndroid();
-	
-	$http.get('js/data/RIT_WRFC.json').success( function(response){
+	//convert to all caps & with _ instead of spaces
+	var org = JSONService.getAllCaps(window.localStorage['org']);
+	//get the associated team data and set it as $scope.team
+	var promise = JSONService.getTeamData(org);
+	promise.success( function(data){
 		var teamName = window.localStorage['team'];
-		console.log(teamName);
 		//save the current team name
-		for(var i = 0; i < response.length; i++){
-			console.log(response[i]['name']);
-			if(response[i]['name'] == teamName){
-				$scope.team = response[i];
-				console.log('true');
+		for(var i = 0; i < data.length; i++){
+			console.log(data[i]['name']);
+			if(data[i]['name'] == teamName){
+				$scope.team = data[i];
 			}
 		}
 	});
-	
 })
 
-/**.controller('ScoreboardCtrl', function($scope, TeamService){
-
-	
-	console.log($scope.scores);
-	/*var json = TeamService.all();
-	window.localStorage['json'] = JSON.stringify(json);
-	$scope.post = JSON.parse(window.localStorage['json'] || '{}');*/
-	/**
-	$scope.highest = TeamService.getHighest();
+/**
+  * responsible for grabbing all team scores for the scoreboard
+  * also grabs the highest score and showcases it
+  */
+.controller('ScoreboardCtrl', function($scope, $http, JSONService){
 	$scope.isAndroid = ionic.Platform.isAndroid();
-})*/
-
-.controller('ScoreboardCtrl', function($scope, $http){
-	$scope.isAndroid = ionic.Platform.isAndroid();
-	
-	$http.get('js/data/RIT_WRFC.json').success( function(response){
+	//convert to all caps & with _ instead spaces
+	var org = JSONService.getAllCaps(window.localStorage['org']);
+	//grab highest score
+	var promise = JSONService.getTeamData(org);
+	promise.success( function(data){
 		//set the scope for the scores
-		$scope.scores = response;
+		$scope.scores = data;
 		//get the highest score
-		var teams = response;
+		var teams = data;
 		var highest = 0;
 			var name = "";
 			var id = 0;
@@ -146,23 +144,28 @@ angular.module('fitspiration.controllers', [])
 /**
   * gets the log in and throws ror if incorrect, goes to app
   */
-.controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $state) {
+.controller('LoginCtrl', function($scope, LoginService, JSONService, $ionicPopup, $state) {
     $scope.data = {};
  
  
     $scope.login = function() {
-        LoginService.loginUser($scope.data.username, $scope.data.password, $scope.data.org).success(function(data) {
-			//save the team name for showing team data in local storage
-			window.localStorage['org'] = $scope.data.org;
-			window.localStorage['team'] = $scope.data.username;
-			//change to dash
-			$state.go('tab.dash');
-        }).error(function(data) {
-            var alertPopup = $ionicPopup.alert({
-                title: 'Login failed!',
-                template: 'Your username or password was incorrect. Please try again.'
-            });
-        });
+		var promise = JSONService.getOrgData();
+		promise.success(function(data){
+			var verify = LoginService.verifyLogin($scope.data.username, $scope.data.password, $scope.data.org, data);
+			
+			LoginService.loginUser(verify).success(function(data) {
+				//save the team name for showing team data in local storage
+				window.localStorage['org'] = $scope.data.org;
+				window.localStorage['team'] = $scope.data.username;
+				//change to dash
+				$state.go('tab.dash');
+			}).error(function(data) {
+				var alertPopup = $ionicPopup.alert({
+					title: 'Login failed!',
+					template: 'Your username or password was incorrect. Please try again.'
+				});
+			});
+		});
     }
 	/* grabs the register view if link is clicked */
 	$scope.register = function() {
