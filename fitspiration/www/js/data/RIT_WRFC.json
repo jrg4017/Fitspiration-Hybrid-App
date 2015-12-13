@@ -3,23 +3,23 @@
 	"name": "Tacos",
 	"score": 300,
 	"teamhistory": [{
-		"imageurl": "img/ic_play_arrow",
+		"imageurl": "img/ic_play_arrow.png",
 		"title": "Day 1 Challenge",
 		"response": "Your team uploaded a video for this challenge"
 	}, {
-		"imageurl": "img/ic_star",
+		"imageurl": "img/star.png",
 		"title": "Day 1 Challenge",
 		"response": "Your team was awarded 200pts"
 	}, {
-		"imageurl": "img/ic_play_arrow",
+		"imageurl": "img/ic_play_arrow.png",
 		"title": "Day 2 Challenge",
 		"response": "Your team uploaded a video for this challenge"
 	}, {
-		"imageurl": "img/ic_play_arrow",
+		"imageurl": "img/ic_play_arrow.png",
 		"title": "Day 3 Challenge",
 		"response": "Your team uploaded a video for this challenge"
 	}, {
-		"imageurl": "img/ic_star",
+		"imageurl": "img/star.png",
 		"title": "Day 3 Challenge",
 		"response": "Your team was awarded 100pts"
 	}]
@@ -28,27 +28,27 @@
 	"name": "LadyLifts",
 	"score": 350,
 	"teamhistory": [{
-		"imageurl": "img/ic_play_arrow",
+		"imageurl": "img/ic_play_arrow.png",
 		"title": "Day 1 Challenge",
 		"response": "Your team uploaded a video for this challenge"
 	}, {
-		"imageurl": "img/ic_star",
+		"imageurl": "img/star.png",
 		"title": "Day 1 Challenge",
 		"response": "Your team was awarded 200pts"
 	}, {
-		"imageurl": "img/ic_play_arrow",
+		"imageurl": "img/ic_play_arrow.png",
 		"title": "Day 2 Challenge",
 		"response": "Your team uploaded a video for this challenge"
 	}, {
-		"imageurl": "img/ic_star",
+		"imageurl": "img/star.png",
 		"title": "Day 2 Challenge",
 		"response": "Your team was awarded 50pts"
 	}, {
-		"imageurl": "img/ic_play_arrow",
+		"imageurl": "img/ic_play_arrow.png",
 		"title": "Day 3 Challenge",
 		"response": "Your team uploaded a video for this challenge"
 	}, {
-		"imageurl": "img/ic_star",
+		"imageurl": "img/star.png",
 		"title": "Day 3 Challenge",
 		"response": "Your team was awarded 100pts"
 	}]
@@ -57,15 +57,15 @@
 	"name": "E-Board",
 	"score": 200,
 	"teamhistory": [{
-		"imageurl": "img/ic_play_arrow",
+		"imageurl": "img/ic_play_arrow.png",
 		"title": "Day 1 Challenge",
 		"response": "Your team uploaded a video for this challenge"
 	}, {
-		"imageurl": "img/ic_star",
+		"imageurl": "img/star.png",
 		"title": "Day 1 Challenge",
 		"response": "Your team was awarded 200pts"
 	}, {
-		"imageurl": "img/ic_play_arrow",
+		"imageurl": "img/ic_play_arrow.png",
 		"title": "Day 2 Challenge",
 		"response": "Your team uploaded a video for this challenge"
 	}]
@@ -74,19 +74,19 @@
 	"name": "Burritos",
 	"score": 250,
 	"teamhistory": [{
-		"imageurl": "img/ic_play_arrow",
+		"imageurl": "img/ic_play_arrow.png",
 		"title": "Day 1 Challenge",
 		"response": "Your team uploaded a video for this challenge"
 	}, {
-		"imageurl": "img/ic_star",
+		"imageurl": "img/star.png",
 		"title": "Day 1 Challenge",
 		"response": "Your team was awarded 200pts"
 	}, {
-		"imageurl": "img/ic_play_arrow",
+		"imageurl": "img/ic_play_arrow.png",
 		"title": "Day 2 Challenge",
 		"response": "Your team uploaded a video for this challenge"
 	}, {
-		"imageurl": "img/ic_star",
+		"imageurl": "img/star.png",
 		"title": "Day 2 Challenge",
 		"response": "Your team was awarded 50pts"
 	}]

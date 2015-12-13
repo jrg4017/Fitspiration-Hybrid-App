@@ -4,9 +4,9 @@ angular.module('fitspiration.services', [])
   * grabs the login page when the app starts and 
   * throws error when the credentials aren't correct
   */
-.factory('LoginService', function($q) {
+.factory('LoginService', function($q, $http) {
     return {
-        loginUser: function(name, pw) {
+        loginUser: function(name, pw, org) {
             var deferred = $q.defer();
             var promise = deferred.promise;
 			
@@ -14,8 +14,9 @@ angular.module('fitspiration.services', [])
 			 * normally I'd change this so the password / username is encrypted
 			 * and not out in plain code, but I wanted to focus on other features
 			 */
+			
             if ( (name == 'LadyLifts' || name == 'E-Board' ||
-				  name == 'Taco' || name == 'Burritos')&& pw == 'secret') {
+				  name == 'Tacos' || name == 'Burritos')&& pw == 'secret') {
                 deferred.resolve('Welcome ' + name + '!');
             } else {
                 deferred.reject('Wrong credentials.');

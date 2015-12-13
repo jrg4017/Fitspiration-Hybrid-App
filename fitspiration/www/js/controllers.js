@@ -85,9 +85,22 @@ angular.module('fitspiration.controllers', [])
 })
 
 
-.controller('TeamCtrl', function($scope, TeamService){
-	$scope.teams = TeamService.all();
+.controller('TeamCtrl', function($http, $scope){
 	$scope.isAndroid = ionic.Platform.isAndroid();
+	
+	$http.get('js/data/RIT_WRFC.json').success( function(response){
+		var teamName = window.localStorage['team'];
+		console.log(teamName);
+		//save the current team name
+		for(var i = 0; i < response.length; i++){
+			console.log(response[i]['name']);
+			if(response[i]['name'] == teamName){
+				$scope.team = response[i];
+				console.log('true');
+			}
+		}
+	});
+	
 })
 
 /**.controller('ScoreboardCtrl', function($scope, TeamService){
@@ -136,9 +149,14 @@ angular.module('fitspiration.controllers', [])
 .controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $state) {
     $scope.data = {};
  
+ 
     $scope.login = function() {
-        LoginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
-            $state.go('tab.dash');
+        LoginService.loginUser($scope.data.username, $scope.data.password, $scope.data.org).success(function(data) {
+			//save the team name for showing team data in local storage
+			window.localStorage['org'] = $scope.data.org;
+			window.localStorage['team'] = $scope.data.username;
+			//change to dash
+			$state.go('tab.dash');
         }).error(function(data) {
             var alertPopup = $ionicPopup.alert({
                 title: 'Login failed!',
@@ -150,6 +168,7 @@ angular.module('fitspiration.controllers', [])
 	$scope.register = function() {
 		$state.go('register');
 	}
+	
 })
 
 .controller('RegisterCtrl', function($scope){
