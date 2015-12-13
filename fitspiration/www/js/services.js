@@ -7,16 +7,37 @@ angular.module('fitspiration.services', [])
 .factory('LoginService', function($q, $http) {
     return {
         loginUser: function(name, pw, org) {
-            var deferred = $q.defer();
-            var promise = deferred.promise;
+			var orgTeams = [];
+			//grab all caps of the organization and then get the teams for the org
+			var allCapsOrg = org.split(' ').join('_').toUpperCase();
+
+			$http.get('js/data/organizations.json').success(function(response){
+				for(var i = 0; i < response.length; i++){
+					if(response[i]['orgName'] == allCapsOrg){
+						orgTeams = response[i]['teams'];
+					}
+				}
+				
+				 console.log(orgTeams);
+           
 			
 			/*for testing purposes, the password is all secret
 			 * normally I'd change this so the password / username is encrypted
 			 * and not out in plain code, but I wanted to focus on other features
 			 */
+			var bool = false;
+			for(i = 0; i < orgTeams.length; i++){
+				console.log(name + orgTeams[i]['name']);
+				if(name == orgTeams[i]['name']){
+					bool = true;
+				}
+			}
 			
-            if ( (name == 'LadyLifts' || name == 'E-Board' ||
-				  name == 'Tacos' || name == 'Burritos')&& pw == 'secret') {
+			 var deferred = $q.defer();
+            var promise = deferred.promise;
+			
+			
+            if ( bool == true && pw == 'secret') {
                 deferred.resolve('Welcome ' + name + '!');
             } else {
                 deferred.reject('Wrong credentials.');
@@ -30,6 +51,8 @@ angular.module('fitspiration.services', [])
                 return promise;
             }
             return promise;
+			});
+			
         }
     }
 })

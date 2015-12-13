@@ -1,0 +1,31 @@
+[{
+	"orgName": "RIT_WRFC",
+	"teams" : [{
+		"id": 0, 
+		"name": "Tacos"
+	},{
+		"id": 1,
+		"name" : "LadyLifts"
+	},{
+		"id": 2,
+		"name" : "E-Board"
+	},{
+		"id": 3,
+		"name" : "Burritos"
+	}]
+},{
+	"orgName": "RIT_MENS_RUGBY",
+	"teams" : [{
+		"id": 0, 
+		"name": "Meatheads"
+	},{
+		"id": 1,
+		"name" : "Forwards"
+	},{
+		"id": 2,
+		"name" : "Backs"
+	},{
+		"id": 3,
+		"name" : "Lumber Jacks"
+	}]
+}]
