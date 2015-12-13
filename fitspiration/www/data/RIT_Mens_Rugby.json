@@ -1,0 +1,149 @@
+[{
+	"id": 0,
+	"name": "Meatheads",
+	"score": 500,
+	"teamhistory": [{
+		"imageurl": "img/ic_play_arrow",
+		"title": "Day 1 Challenge",
+		"response": "Your team uploaded a video for this challenge"
+	}, {
+		"imageurl": "img/ic_star",
+		"title": "Day 1 Challenge",
+		"response": "Your team was awarded 200pts"
+	}, {
+		"imageurl": "img/ic_play_arrow",
+		"title": "Day 2 Challenge",
+		"response": "Your team uploaded a video for this challenge"
+	}, {
+		"imageurl": "img/ic_play_arrow",
+		"title": "Day 3 Challenge",
+		"response": "Your team uploaded a video for this challenge"
+	}, {
+		"imageurl": "img/ic_star",
+		"title": "Day 3 Challenge",
+		"response": "Your team was awarded 100pts"
+	}, {
+		"imageurl": "img/ic_play_arrow",
+		"title": "Day 4 Challenge",
+		"response": "Your team uploaded a video for this challenge"
+	}, {
+		"imageurl": "img/ic_star",
+		"title": "Day 4 Challenge",
+		"response": "Your team was awarded 100pts"
+	}, {
+		"imageurl": "img/ic_play_arrow",
+		"title": "Day 5 Challenge",
+		"response": "Your team uploaded a video for this challenge"
+	}, {
+		"imageurl": "img/ic_star",
+		"title": "Day 5 Challenge",
+		"response": "Your team was awarded 100pts"
+	}]
+}, {
+	"id": 1,
+	"name": "Forwards",
+	"score": 450,
+	"teamhistory": [{
+		"imageurl": "img/ic_play_arrow",
+		"title": "Day 1 Challenge",
+		"response": "Your team uploaded a video for this challenge"
+	}, {
+		"imageurl": "img/ic_star",
+		"title": "Day 1 Challenge",
+		"response": "Your team was awarded 200pts"
+	}, {
+		"imageurl": "img/ic_play_arrow",
+		"title": "Day 2 Challenge",
+		"response": "Your team uploaded a video for this challenge"
+	}, {
+		"imageurl": "img/ic_star",
+		"title": "Day 2 Challenge",
+		"response": "Your team was awarded 50pts"
+	}, {
+		"imageurl": "img/ic_play_arrow",
+		"title": "Day 3 Challenge",
+		"response": "Your team uploaded a video for this challenge"
+	}, {
+		"imageurl": "img/ic_star",
+		"title": "Day 3 Challenge",
+		"response": "Your team was awarded 100pts"
+	}, {
+		"imageurl": "img/ic_play_arrow",
+		"title": "Day 5 Challenge",
+		"response": "Your team uploaded a video for this challenge"
+	}, {
+		"imageurl": "img/ic_star",
+		"title": "Day 5 Challenge",
+		"response": "Your team was awarded 100pts"
+	}]
+}, {
+	"id": 2,
+	"name": "Backs",
+	"score": 200,
+	"teamhistory": [{
+		"imageurl": "img/ic_play_arrow",
+		"title": "Day 1 Challenge",
+		"response": "Your team uploaded a video for this challenge"
+	}, {
+		"imageurl": "img/ic_star",
+		"title": "Day 1 Challenge",
+		"response": "Your team was awarded 200pts"
+	}, {
+		"imageurl": "img/ic_play_arrow",
+		"title": "Day 2 Challenge",
+		"response": "Your team uploaded a video for this challenge"
+	}, {
+		"imageurl": "img/ic_play_arrow",
+		"title": "Day 3 Challenge",
+		"response": "Your team uploaded a video for this challenge"
+	}, {
+		"imageurl": "img/ic_play_arrow",
+		"title": "Day 4 Challenge",
+		"response": "Your team uploaded a video for this challenge"
+	}, {
+		"imageurl": "img/ic_play_arrow",
+		"title": "Day 5 Challenge",
+		"response": "Your team uploaded a video for this challenge"
+	}, {
+		"imageurl": "img/ic_play_arrow",
+		"title": "Day 6 Challenge",
+		"response": "Your team uploaded a video for this challenge"
+	}]
+}, {
+	"id": 3,
+	"name": "LumberJacks",
+	"score": 550,
+	"teamhistory": [{
+		"imageurl": "img/ic_play_arrow",
+		"title": "Day 1 Challenge",
+		"response": "Your team uploaded a video for this challenge"
+	}, {
+		"imageurl": "img/ic_star",
+		"title": "Day 1 Challenge",
+		"response": "Your team was awarded 200pts"
+	}, {
+		"imageurl": "img/ic_play_arrow",
+		"title": "Day 2 Challenge",
+		"response": "Your team uploaded a video for this challenge"
+	}, {
+		"imageurl": "img/ic_star",
+		"title": "Day 2 Challenge",
+		"response": "Your team was awarded 50pts"
+	}, {
+		"imageurl": "img/ic_play_arrow",
+		"title": "Day 5 Challenge",
+		"response": "Your team uploaded a video for this challenge"
+	}, {
+		"imageurl": "img/ic_star",
+		"title": "Day 5 Challenge",
+		"response": "Your team was awarded 100pts"
+	}, {
+		"imageurl": "img/ic_play_arrow",
+		"title": "Day 6 Challenge",
+		"response": "Your team uploaded a video for this challenge"
+	}, {
+		"imageurl": "img/ic_star",
+		"title": "Day 6 Challenge",
+		"response": "Your team was awarded 200pts"
+	}]
+}]

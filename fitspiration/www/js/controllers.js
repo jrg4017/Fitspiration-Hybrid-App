@@ -102,13 +102,33 @@ angular.module('fitspiration.controllers', [])
 	$scope.isAndroid = ionic.Platform.isAndroid();
 })*/
 
-.controller('ScoreboardCtrl', ['$scope', '$http', function($scope, $http){
+.controller('ScoreboardCtrl', function($scope, $http){
 	$scope.isAndroid = ionic.Platform.isAndroid();
 	
 	$http.get('js/data/RIT_WRFC.json').success( function(response){
+		//set the scope for the scores
 		$scope.scores = response;
+		//get the highest score
+		var teams = response;
+		var highest = 0;
+			var name = "";
+			var id = 0;
+			
+			for(var i =0; i < teams.length; i++){
+				if(teams[i].score > highest){
+					highest = teams[i]["score"];
+					name = teams[i]["name"];
+				id = teams[i]["id"];
+				}
+			}
+			var temp = [];
+			temp['id'] = id;
+			temp['score'] = highest;
+			temp['name'] = name;
+			$scope.highest = temp;
 	});
-}])
+	
+})
 
 /**
   * gets the log in and throws ror if incorrect, goes to app

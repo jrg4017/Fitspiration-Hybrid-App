@@ -9,8 +9,13 @@ angular.module('fitspiration.services', [])
         loginUser: function(name, pw) {
             var deferred = $q.defer();
             var promise = deferred.promise;
- 
-            if (name == 'user' && pw == 'secret') {
+			
+			/*for testing purposes, the password is all secret
+			 * normally I'd change this so the password / username is encrypted
+			 * and not out in plain code, but I wanted to focus on other features
+			 */
+            if ( (name == 'LadyLifts' || name == 'E-Board' ||
+				  name == 'Taco' || name == 'Burritos')&& pw == 'secret') {
                 deferred.resolve('Welcome ' + name + '!');
             } else {
                 deferred.reject('Wrong credentials.');
@@ -75,6 +80,17 @@ angular.module('fitspiration.services', [])
 	}
 })
 */
+/*.factory('GetTeams', function($http){
+	return {
+		all: function(){
+			return $http.get('js/data/RIT_WRFC.json').then(function(response){
+				var teams = response;
+				return teams;
+			})
+	};
+})*/
+
+
 /**
   * gets the chat 
   */
@@ -127,7 +143,8 @@ angular.module('fitspiration.services', [])
   };
 })
 
-/**for getting local storage items**/
+/*
+/**for getting local storage items
 .factory('$localStorage', ['$window', function($window){
 	return{
 		set: function(key, value){
@@ -144,9 +161,6 @@ angular.module('fitspiration.services', [])
 		}
 	}
 }])
-
-
-/*
 .factory('TeamService', function($http, $scope, $stateParams){
 	return{
 		all: function(){
