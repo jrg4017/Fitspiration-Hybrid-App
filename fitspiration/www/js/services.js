@@ -68,11 +68,8 @@ angular.module('fitspiration.services', [])
                  return promise;
              }
              return promise;
-         },
-		 removeItem: function(index){
-			 $window.localStorage.removeItem($window.localStorage.key(index));
-		 }
-    }
+         }
+    };
 })
 /**
   * designed to get the newsfeed and refresh the feed 10 results at a time

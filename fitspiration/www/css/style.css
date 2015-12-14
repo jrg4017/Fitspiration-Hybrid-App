@@ -10,7 +10,7 @@
 }
 .image-scoreboard{ background-image: url('../img/star_medal.png'); }	
 .ts h2{ font-weight: bold; }
-#ts { padding: 4.5em; }
+#ts { padding: 4.5em;}
 .image-team{ background-image: url('../img/star.png'); }	
 .image-scoreboard, .image-team{
 	background-repeat: no-repeat;

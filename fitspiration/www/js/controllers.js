@@ -98,7 +98,6 @@ angular.module('fitspiration.controllers', [])
 		var teamName = window.localStorage['team'];
 		//save the current team name
 		for(var i = 0; i < data.length; i++){
-			console.log(data[i]['name']);
 			if(data[i]['name'] == teamName){
 				$scope.team = data[i];
 			}
@@ -160,7 +159,7 @@ angular.module('fitspiration.controllers', [])
 				//change to dash
 				$state.go('tab.dash');
 			}).error(function(data) {
-				var alertPopup = $ionicPopup.alert({
+				alertPopup = $ionicPopup.alert({
 					title: 'Login failed!',
 					template: 'Your username or password was incorrect. Please try again.'
 				});
