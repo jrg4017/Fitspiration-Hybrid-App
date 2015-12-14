@@ -89,8 +89,12 @@
 /**************************************************
     Misc. formatting for html tag items
 ***************************************************/     
-hr {
-	opacity: .4;
+hr {opacity: .4;}
+textarea { resize: none; }
+#padd { padding-right: 2em; }
+.button-theme-color button {
+	background-color: #00BFA5 !important;
+	border-color: #00BFA5 !important;
 }
 /**************************************************
     Hides for android devices

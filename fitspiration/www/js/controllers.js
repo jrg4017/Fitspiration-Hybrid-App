@@ -59,7 +59,7 @@ angular.module('fitspiration.controllers', [])
     });
 	
 	$scope.addItem = function() {
-		$state.go('upload');
+		$state.go('upload-post');
 	}
   };
   
@@ -77,11 +77,52 @@ angular.module('fitspiration.controllers', [])
   CheckNewItems();
 })
 
-.controller('UploadCtrl', function($scope){
+
+
+.controller('UploadPostCtrl', function($scope, $state, $ionicPopup, Camera){
+	$scope.back = function(){
+		$state.go('tab.dash');
+	}
+	
+	$scope.getPhoto = function() {
+    console.log('Getting camera');
+    Camera.getPicture({
+      quality: 75,
+      allowEdit : true,
+      targetWidth: 300,
+      targetHeight: 300,
+      saveToPhotoAlbum: true
+    }).then(function(imageURI) {
+      console.log(imageURI);
+      $scope.lastPhoto = imageURI;
+    }, function(err) {
+      console.err(err);
+    });
+	}
+  
+  $scope.addItem = function(){
+	  if(document.getElementById("textarea").value == ""){
+		  alertPopup = $ionicPopup.alert({
+			title: 'Oh no! We can\'t accept this.',
+			template: 'Please at least enter description to post!', 
+			cssClass: 'button-theme-color'
+		});
+	  }
+  }
 	
 })
-.controller('ChallengeCtrl', function($scope){
+
+.controller('UploadChallengeCtrl', function($scope, $state){
+	$scope.back = function(){
+		$state.go('tab.challenge');
+	}
+})
+
+.controller('ChallengeCtrl', function($scope, $state){
 	$scope.isAndroid = ionic.Platform.isAndroid();
+	$scope.addItem = function() {
+		$state.go('upload-challenge');
+	}
 })
 
 /**
@@ -161,7 +202,8 @@ angular.module('fitspiration.controllers', [])
 			}).error(function(data) {
 				alertPopup = $ionicPopup.alert({
 					title: 'Login failed!',
-					template: 'Your username or password was incorrect. Please try again.'
+					template: 'Your username or password was incorrect. Please try again.',
+					cssClass: "button-theme-color"
 				});
 			});
 		});

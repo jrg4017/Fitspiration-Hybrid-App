@@ -66,10 +66,16 @@ angular.module('fitspiration', ['ionic', 'fitspiration.controllers', 'fitspirati
 		controller: 'RegisterCtrl'
 	})
 	
-	.state('upload', { //launches if button is clicked
-		url: '/upload',
-		templateUrl: 'templates/upload.html',
-		controller: 'UploadCtrl'
+	.state('upload-post', { //launches if button is clicked on newsfeed
+		url: '/upload-post',
+		templateUrl: 'templates/upload-post.html',
+		controller: 'UploadPostCtrl'
+	})
+	
+	.state('upload-challenge', { //launches if button is clicked
+		url: '/upload-challenge',
+		templateUrl: 'templates/upload-challenge.html',
+		controller: 'UploadChallengeCtrl'
 	})
   
   .state('tab.challenge', {

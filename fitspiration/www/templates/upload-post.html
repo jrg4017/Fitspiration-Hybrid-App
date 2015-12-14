@@ -1,0 +1,46 @@
+<ion-view view-title="" name="upload-post-view">
+<ion-nav-bar class="nav-bar">
+	<ion-nav-buttons side="left">
+		<a class="button button-icon button-clear" ng-click="back()">
+			<i class="ion-chevron-left button-clear"></i>
+		</a>
+	</ion-nav-buttons>
+	<ion-nav-buttons side="right">
+		<a class="button button-icon button-clear hide-show" ng-click="addItem()">
+			<i class="ion-plus button-clear"></i>
+		</a>
+    </ion-nav-buttons>
+</ion-nav-bar>
+
+  <ion-content>
+	<div class="text-center" >
+		<br><h2>Upload to Newsfeed</h2><br><br>
+		<img ng-src="{{lastPhoto}}" style="max-width: 100%" value="{{lastPhoto}}" id="img">
+		<button ng-click="getPhoto()" class="button button-clear">
+			<img id="padd" src="img/camera.png">
+		</button>
+		<button ng-click="fromGallery()" class="button button-clear">
+			<img src="img/gallery.png">
+		</button>
+	</div><br>
+	<div class="list">
+		<label class="item item-input">
+			<textarea placeholder="Add a description or status" rows="20" id="textarea" ></textarea>
+		</label>
+	</div>
+	<!-- growing text box -->
+	
+	
+    
+  </ion-content>
+  
+<!-- adds a floating button as per material design for android -->
+<div class="float-button" ng-if="isAndroid != false">
+	<span class="height-fix">
+		<a class="content" href="" ng-click="addItem()">
+			<i class="ion-ios-plus-empty"></i>
+		</a>
+	</span>
+</div>
+
+</ion-view>

@@ -1,0 +1,35 @@
+<!--<ion-view view-title="" name="upload-view">
+<ion-nav-bar class="theme-color"></ion-nav-bar>
+  <ion-content class="padding theme-color">
+	<h1>yes</h1>
+  </ion-content>
+</ion-view>-->
+
+<ion-view view-title="Upload Challenge Video" name="upload-view">
+<ion-nav-bar class="nav-bar">
+	<ion-nav-buttons side="left">
+		<a class="button button-icon button-clear" ng-click="back()">
+			<i class="ion-chevron-left button-clear"></i>
+		</a>
+	</ion-nav-buttons>
+	<ion-nav-buttons side="right">
+		<a class="button button-icon button-clear hide-show" ng-click="addItem()">
+			<i class="ion-plus button-clear"></i>
+		</a>
+    </ion-nav-buttons>
+</ion-nav-bar>
+
+  <ion-content class="">
+	<h1>yes</h1>
+  </ion-content>
+
+<!-- adds a floating button as per material design for android -->
+<div class="float-button" ng-if="isAndroid != false">
+	<span class="height-fix">
+		<a class="content" href="" ng-click="addItem()">
+			<i class="ion-ios-plus-empty"></i>
+		</a>
+	</span>
+</div>
+
+</ion-view>
