@@ -1,4 +1,4 @@
-<ion-view view-title="Challenge" name="challenge-view">
+<ion-view view-title="Challenge" name="challenge-view" cache-view="false">
 <ion-nav-bar class="nav-bar">
 	<ion-nav-buttons side="right">
 		<a class="button button-icon button-clear hide-show "ng-click="addItem()">
@@ -8,12 +8,29 @@
 </ion-nav-bar>
 
 <ion-content>
+	<div class="item item-image">
+		<img src="img/challenge.jpg" />
+	</div>
 	<ion-list>
-		<div class="item card" ng-if="!items.length">
-			<br>
-			<h2>Your Daily Challenge</h2>
-			<br>
+		<div class="item challenge-title theme-color" ng-if="!items.length">
+			<h2>Challenge #{{challenge.latest.day}}4</h2><h3>Due {{challenge.latest.date}}Nov 2 at 11:59pm</h3>
 		</div>
+		<div class="item">
+			<p>{{challenge.latest.description}}Your entire team must do the following (and record it):
+				<br> 75 crunches in one sitting
+				<br> 25 burpees in one set
+				<br> 10 burpee-suicides in no more than two sets
+				<br> 15 High Box Jumps in no more than 3 sets
+				<br> 15 jumping jacks in one set
+			</p>
+			<br><br>
+			<p>Worth: {{challenge.latest.points}}150 points</p>
+		</div>
+		
+		<!-- <label class="item item-input">
+			<br>
+			<textarea placeholder="Add a description or status" rows="20" id="textarea" ></textarea>
+		</label> -->
 	</ion-list>
 </ion-content>
 <!-- adds a floating button as per material design for android -->

@@ -112,16 +112,32 @@ angular.module('fitspiration.controllers', [])
 	
 })
 
-.controller('UploadChallengeCtrl', function($scope, $state){
+.controller('UploadChallengeCtrl',function($scope, $state, $ionicPopup, JSONService){
+	$scope.isAndroid = ionic.Platform.isAndroid();
 	$scope.back = function(){
 		$state.go('tab.challenge');
+	}
+	var org = window.localStorage['org'];
+	var arr = {"imageurl" : "img/ic_play_arrow.png", "title":"Challenge #4", "response":"Your Team Uploaded a video"};
+	
+	var data = JSONService.addToTeamHistory(org, window.localStorage['team'], arr);
+	
+	$scope.addItem = function(){
+		if(window.localStorage['alert'] == 'y'){
+			alertPopup = $ionicPopup.alert({
+			title: 'Submission already received!',
+			template: 'Looks like your team already submitted to this challenge!',
+			cssClass: "button-theme-color"
+		});
+	}
+		//$state.go('tab.challenge');//go back to the challenge page
 	}
 })
 
 .controller('ChallengeCtrl', function($scope, $state){
 	$scope.isAndroid = ionic.Platform.isAndroid();
 	$scope.addItem = function() {
-		$state.go('upload-challenge');
+		$state.go('upload-challenge'); 
 	}
 })
 
@@ -131,54 +147,28 @@ angular.module('fitspiration.controllers', [])
   */
 .controller('TeamCtrl', function($http, $scope, JSONService){
 	$scope.isAndroid = ionic.Platform.isAndroid();
-	//convert to all caps & with _ instead of spaces
-	var org = JSONService.getAllCaps(window.localStorage['org']);
+	var org = window.localStorage['org'];
 	//get the associated team data and set it as $scope.team
-	var promise = JSONService.getTeamData(org);
-	promise.success( function(data){
-		var teamName = window.localStorage['team'];
-		//save the current team name
-		for(var i = 0; i < data.length; i++){
-			if(data[i]['name'] == teamName){
-				$scope.team = data[i];
-			}
+	var data = JSONService.getTeamData(org);
+	var teamName = window.localStorage['team'];
+	//save the current team name
+	for(var i = 0; i < data.length; i++){
+		if(data[i]['name'] == teamName){
+			$scope.team = data[i];
 		}
-	});
+	}
 })
 
 /**
   * responsible for grabbing all team scores for the scoreboard
   * also grabs the highest score and showcases it
   */
-.controller('ScoreboardCtrl', function($scope, $http, JSONService){
+.controller('ScoreboardCtrl', function($scope, $http, ScoreBoardService){
 	$scope.isAndroid = ionic.Platform.isAndroid();
-	//convert to all caps & with _ instead spaces
-	var org = JSONService.getAllCaps(window.localStorage['org']);
-	//grab highest score
-	var promise = JSONService.getTeamData(org);
-	promise.success( function(data){
-		//set the scope for the scores
-		$scope.scores = data;
-		//get the highest score
-		var teams = data;
-		var highest = 0;
-			var name = "";
-			var id = 0;
-			
-			for(var i =0; i < teams.length; i++){
-				if(teams[i].score > highest){
-					highest = teams[i]["score"];
-					name = teams[i]["name"];
-				id = teams[i]["id"];
-				}
-			}
-			var temp = [];
-			temp['id'] = id;
-			temp['score'] = highest;
-			temp['name'] = name;
-			$scope.highest = temp;
-	});
-	
+	//set the scope for the scores	
+	$scope.scores = ScoreBoardService.all();
+	//get the highest score
+	$scope.highest = ScoreBoardService.getHighest($scope.scores);
 })
 
 /**
@@ -186,8 +176,15 @@ angular.module('fitspiration.controllers', [])
   */
 .controller('LoginCtrl', function($scope, LoginService, JSONService, $ionicPopup, $state) {
     $scope.data = {};
- 
- 
+
+	//if item is in local storage, preload into the form
+	var org = window.localStorage['org'];
+	var team = window.localStorage['team'];
+	if(org != null && team != null){
+		$scope.data.org = org;
+		$scope.data.username = team;
+	}
+
     $scope.login = function() {
 		var promise = JSONService.getOrgData();
 		promise.success(function(data){
@@ -195,8 +192,12 @@ angular.module('fitspiration.controllers', [])
 			
 			LoginService.loginUser(verify).success(function(data) {
 				//save the team name for showing team data in local storage
-				window.localStorage['org'] = $scope.data.org;
+				window.localStorage['org'] = JSONService.getAllCaps($scope.data.org);
 				window.localStorage['team'] = $scope.data.username;
+				//sorta hacky - load the information in local storage
+				var n = window.localStorage['org'];
+				if(window.localStorage[n + ".json"] == null){
+				window.localStorage[n + ".json"] = JSONService.saveJSON(n); }
 				//change to dash
 				$state.go('tab.dash');
 			}).error(function(data) {

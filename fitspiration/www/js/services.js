@@ -2,21 +2,37 @@ angular.module('fitspiration.services', [])
 
 .factory('JSONService', function($http){
 	return {
+		saveJSON: function(org){
+			var path = "js/data/" + org + ".json";
+			$http.get(path).success(function(data){
+				window.localStorage[org + '.json'] = JSON.stringify(data); //save into localStorage
+			})
+		},
 		getOrgData: function(){
 			return $http.get('js/data/organizations.json').success(function(data){
 				return data
 			});
 		}, 
 		getTeamData: function(org){
-			var path = "js/data/" + org + ".json";
-			return $http.get(path).success(function(data){
-				return data;
-			});
+			var data = window.localStorage[org + '.json']; //grab up to date data
+			return JSON.parse(data);
 		},
 		getAllCaps: function(name){
 			//grab all caps of the name in question and then get the teams for the org
 			return name.split(' ').join('_').toUpperCase();
 			
+		},
+		addTeam: function(org, teamName){
+			
+		},
+		addOrg: function(org, teamName){
+			
+		},
+		addToTeamHistory(org, team, historyArr){
+				var data = JSON.parse(window.localStorage[org + '.json']);
+				var json = getNewJSON(data, team, historyArr);
+				//save the new json 
+				window.localStorage[org + '.json'] = JSON.stringify(json);			
 		}
 	};
 })
@@ -97,6 +113,33 @@ angular.module('fitspiration.services', [])
 				items = response.data.results;
 				return items;
 			});
+		}
+	};
+})
+
+.factory('ScoreBoardService', function(JSONService){
+	return {
+		all: function(){
+			var org = window.localStorage['org'];
+			return JSONService.getTeamData(org);
+		},
+		getHighest: function(teams){
+			var highest = 0;
+			var name = "";
+			var id = 0;
+			
+			for(var i =0; i < teams.length; i++){
+				if(teams[i].score > highest){
+					highest = teams[i]["score"];
+					name = teams[i]["name"];
+				id = teams[i]["id"];
+				}
+			}
+			var temp = [];
+			temp['id'] = id;
+			temp['score'] = highest;
+			temp['name'] = name;
+			return temp;
 		}
 	};
 })

@@ -95,7 +95,15 @@ textarea { resize: none; }
 .button-theme-color button {
 	background-color: #00BFA5 !important;
 	border-color: #00BFA5 !important;
+	color: black;
 }
+.challenge-title h2, h3 { 
+	padding: .2em 0;
+	color: white;
+ }
+.challenge-title h2 { font-size: 2em; }
+.challenge-title h3 { font-size: 1em; }
+ion-nav-buttons .button-white { color: white !important; }
 /**************************************************
     Hides for android devices
 ***************************************************/  

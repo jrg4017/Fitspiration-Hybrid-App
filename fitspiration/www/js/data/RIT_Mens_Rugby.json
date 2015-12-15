@@ -4,39 +4,39 @@
 	"score": 500,
 	"teamhistory": [{
 		"imageurl": "img/ic_play_arrow.png",
-		"title": "Day 1 Challenge",
+		"title": "Challenge #1",
 		"response": "Your team uploaded a video"
 	}, {
 		"imageurl": "img/star.png",
-		"title": "Day 1 Challenge",
+		"title": "Challenge #1",
 		"response": "Your team was awarded 200 points"
 	}, {
 		"imageurl": "img/ic_play_arrow.png",
-		"title": "Day 2 Challenge",
+		"title": "Challenge #2",
 		"response": "Your team uploaded a video"
 	}, {
 		"imageurl": "img/ic_play_arrow.png",
-		"title": "Day 3 Challenge",
+		"title": "Challenge #3",
 		"response": "Your team uploaded a video"
 	}, {
 		"imageurl": "img/star.png",
-		"title": "Day 3 Challenge",
+		"title": "Challenge #3",
 		"response": "Your team was awarded 100 points"
 	}, {
 		"imageurl": "img/ic_play_arrow.png",
-		"title": "Day 4 Challenge",
+		"title": "Challenge #4",
 		"response": "Your team uploaded a video"
 	}, {
 		"imageurl": "img/star.png",
-		"title": "Day 4 Challenge",
+		"title": "Challenge #4",
 		"response": "Your team was awarded 100 points"
 	}, {
 		"imageurl": "img/ic_play_arrow.png",
-		"title": "Day 5 Challenge",
+		"title": "Challenge #5",
 		"response": "Your team uploaded a video"
 	}, {
 		"imageurl": "img/star.png",
-		"title": "Day 5 Challenge",
+		"title": "Challenge #5",
 		"response": "Your team was awarded 100 points"
 	}]
 }, {
@@ -45,35 +45,35 @@
 	"score": 450,
 	"teamhistory": [{
 		"imageurl": "img/ic_play_arrow.png",
-		"title": "Day 1 Challenge",
+		"title": "Challenge #1",
 		"response": "Your team uploaded a video"
 	}, {
 		"imageurl": "img/star.png",
-		"title": "Day 1 Challenge",
+		"title": "Challenge #1",
 		"response": "Your team was awarded 200 points"
 	}, {
 		"imageurl": "img/ic_play_arrow.png",
-		"title": "Day 2 Challenge",
+		"title": "Challenge #2",
 		"response": "Your team uploaded a video"
 	}, {
 		"imageurl": "img/star.png",
-		"title": "Day 2 Challenge",
+		"title": "Challenge #2",
 		"response": "Your team was awarded 50 points"
 	}, {
 		"imageurl": "img/ic_play_arrow.png",
-		"title": "Day 3 Challenge",
+		"title": "Challenge #3",
 		"response": "Your team uploaded a video"
 	}, {
 		"imageurl": "img/star.png",
-		"title": "Day 3 Challenge",
+		"title": "Challenge #3",
 		"response": "Your team was awarded 100 points"
 	}, {
 		"imageurl": "img/ic_play_arrow.png",
-		"title": "Day 5 Challenge",
+		"title": "Challenge #5",
 		"response": "Your team uploaded a video"
 	}, {
 		"imageurl": "img/star.png",
-		"title": "Day 5 Challenge",
+		"title": "Challenge #5",
 		"response": "Your team was awarded 100 points"
 	}]
 }, {
@@ -82,31 +82,31 @@
 	"score": 200,
 	"teamhistory": [{
 		"imageurl": "img/ic_play_arrow.png",
-		"title": "Day 1 Challenge",
+		"title": "Challenge #1",
 		"response": "Your team uploaded a video"
 	}, {
 		"imageurl": "img/star.png",
-		"title": "Day 1 Challenge",
+		"title": "Challenge #1",
 		"response": "Your team was awarded 200 points"
 	}, {
 		"imageurl": "img/ic_play_arrow.png",
-		"title": "Day 2 Challenge",
+		"title": "Challenge #2",
 		"response": "Your team uploaded a video"
 	}, {
 		"imageurl": "img/ic_play_arrow.png",
-		"title": "Day 3 Challenge",
+		"title": "Challenge #3",
 		"response": "Your team uploaded a video"
 	}, {
 		"imageurl": "img/ic_play_arrow.png",
-		"title": "Day 4 Challenge",
+		"title": "Challenge #4",
 		"response": "Your team uploaded a video"
 	}, {
 		"imageurl": "img/ic_play_arrow.png",
-		"title": "Day 5 Challenge",
+		"title": "Challenge #5",
 		"response": "Your team uploaded a video"
 	}, {
 		"imageurl": "img/ic_play_arrow.png",
-		"title": "Day 6 Challenge",
+		"title": "Challenge #6",
 		"response": "Your team uploaded a video"
 	}]
 }, {
@@ -115,35 +115,35 @@
 	"score": 550,
 	"teamhistory": [{
 		"imageurl": "img/ic_play_arrow.png",
-		"title": "Day 1 Challenge",
+		"title": "Challenge #1",
 		"response": "Your team uploaded a video"
 	}, {
 		"imageurl": "img/star.png",
-		"title": "Day 1 Challenge",
+		"title": "Challenge #1",
 		"response": "Your team was awarded 200 points"
 	}, {
 		"imageurl": "img/ic_play_arrow.png",
-		"title": "Day 2 Challenge",
+		"title": "Challenge #2",
 		"response": "Your team uploaded a video"
 	}, {
 		"imageurl": "img/star.png",
-		"title": "Day 2 Challenge",
+		"title": "Challenge #2",
 		"response": "Your team was awarded 50 points"
 	}, {
 		"imageurl": "img/ic_play_arrow.png",
-		"title": "Day 5 Challenge",
+		"title": "Challenge #5",
 		"response": "Your team uploaded a video"
 	}, {
 		"imageurl": "img/star.png",
-		"title": "Day 5 Challenge",
+		"title": "Challenge #5",
 		"response": "Your team was awarded 100 points"
 	}, {
 		"imageurl": "img/ic_play_arrow.png",
-		"title": "Day 6 Challenge",
+		"title": "Challenge #6",
 		"response": "Your team uploaded a video"
 	}, {
 		"imageurl": "img/star.png",
-		"title": "Day 6 Challenge",
+		"title": "Challenge #6",
 		"response": "Your team was awarded 200 points"
 	}]
 }]
