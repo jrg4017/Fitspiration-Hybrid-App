@@ -28,7 +28,7 @@ angular.module('fitspiration.controllers', [])
   $scope.items = [];
   
   /* gets the feed and items*/
-  if(window.localStorage[window.localStorage['org'] +"-newsfeed"] == null){ //if null load it
+  if(window.localStorage[window.localStorage['org'] +"-newsfeed.json"] == null){ //if null load it
 	PersonService.GetNewsfeedData(); //load the data
   } //load the data into the newsfeed
 	
@@ -45,7 +45,7 @@ angular.module('fitspiration.controllers', [])
   
   /*checks for new items every 20 seconds and loads it into the newItems array */
    var CheckNewItems = function(){
-		$timeout(function(){$scope.items = PersonService.GetFeed();},1000);
+		$timeout(function(){$scope.items = PersonService.GetFeed();},200000);
    }
   
   CheckNewItems();
@@ -53,12 +53,14 @@ angular.module('fitspiration.controllers', [])
 
 
 
-.controller('UploadPostCtrl', function($scope, $state, $ionicPopup, Camera){
+.controller('UploadPostCtrl', function($scope, $state, $ionicPopup, JSONService, Camera){
+	$scope.data = {};
+	//goes back to the newsfeed if clicked
 	$scope.back = function(){
 		$state.go('tab.dash');
 	}
-	
-	$scope.getPhoto = function() {
+	$scope.lastPhoto = ''; //default
+	$scope.getPhoto = function() { //gets the photo if camera button clicked
     console.log('Getting camera');
     Camera.getPicture({
       quality: 75,
@@ -73,7 +75,7 @@ angular.module('fitspiration.controllers', [])
       console.err(err);
     });
 	}
-  
+  //adds item to the newsfeed array
   $scope.addItem = function(){
 	  if(document.getElementById("textarea").value == ""){
 		  alertPopup = $ionicPopup.alert({
@@ -81,8 +83,17 @@ angular.module('fitspiration.controllers', [])
 			template: 'Please at least enter description to post!', 
 			cssClass: 'button-theme-color'
 		});
-	  }
-  }
+	  }else{//add to feed
+		if($scope.lastPhoto == ''){ //get what's in the url instead if something is there
+			$scope.lastPhoto = $scope.data.imageurl;
+		}
+		  JSONService.addPostToFeed(window.localStorage['org'], $scope.lastPhoto,
+		  $scope.data.caption, window.localStorage['team']);
+		  $state.go('tab.dash');
+
+  }}
+  
+  
 	
 })
 
@@ -94,10 +105,6 @@ angular.module('fitspiration.controllers', [])
 		$state.go('tab.challenge');
 	}
 	var org = window.localStorage['org'];
-	
-	var arr = {"imageurl" : "img/ic_play_arrow.png", "title":"Challenge #4", "response":"Your Team uploaded a video"};
-	var data = JSONService.addToTeamHistory(org, window.localStorage['team'], arr);
-	
 	$scope.addItem = function(){
 		var ytube = $scope.data.youtube; //get the data on click
 		var bool = validYouTube(ytube); //validate it's a link
@@ -115,17 +122,46 @@ angular.module('fitspiration.controllers', [])
 			});
 			$state.go('tab.challenge');//go back to the challenge page
 		}else{//all is well :)
+			var promise = JSONService.getOrgData();
+			promise.success(function(data){
+				for(var i =0; i < data.length; i++){
+					if(data[i]['orgName'] == window.localStorage['org']){	
+						var arr = {
+						"imageurl" : "img/ic_play_arrow.png", 
+						"title":"Challenge " + data[i]['challenge'][0]['number'], 
+						"response":"Your Team uploaded a video"};
+						//add it to the team history
+						var data = JSONService.addToTeamHistory(org, window.localStorage['team'], arr);
+					}
+			}});
+		
 			$state.go('tab.team');//go back to team page to show output
 		}
 		
 	}
 })
 
-.controller('ChallengeCtrl', function($scope, $state){
+.controller('ChallengeCtrl', function($scope, $state, JSONService){
 	$scope.isAndroid = ionic.Platform.isAndroid();
 	$scope.addItem = function() {
 		$state.go('upload-challenge'); 
 	}
+	//get the data for the current challenge for the organization
+	var promise = JSONService.getOrgData();
+	promise.success(function(data){
+		for(var i =0; i < data.length; i++){
+			if(data[i]['orgName'] == window.localStorage['org']){
+				var temp = {
+					"number": data[i]['challenge'][0]['number'],
+					"duedate":data[i]['challenge'][0]['duedate'],
+					"description": data[i]['challenge'][0]['description'],
+					"points" : data[i]['challenge'][0]['points']
+				};
+				
+				$scope.challenge =  temp;
+			}
+		}
+	});
 })
 
 /**
@@ -204,7 +240,6 @@ angular.module('fitspiration.controllers', [])
 })
 
 .controller('RegisterCtrl', function($scope){
-	
 	/* grabs the login view if link is clicked */
 });
 

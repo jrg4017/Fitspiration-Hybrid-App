@@ -1,5 +1,4 @@
-<ion-view view-title="Newsfeed" name="newsfeed-view">
- 
+<ion-view view-title="Newsfeed" name="newsfeed-view" cache-view="false">
 <ion-nav-bar class="nav-bar">
 	<ion-nav-buttons side="right">
 		<a class="button button-icon button-clear hide-show "ng-click="addItem()">
@@ -12,21 +11,19 @@
 	<ion-refresher on-refresh="refresh()"></ion-refresher>
 	<ion-list>
 		<div class="list card" ng-repeat="item in items">
-		
 		<!-- for later when there are no items-->
-		<!-- <div ng-if="!items.length">
+		<div ng-if="!items.length">
 			<br>
 			<h2>Look like there's nothing here</h2>
 			<p>Upload your own content!</p>
 			<br>
-		</div>-->
-			<ion-item class="item newsfeed item-text-wrap"">
-				<div class="text-center"><img src="{{item.user.picture.thumbnail}}" /></div>
-					<div class="item-image" ng-if="item.image !== ''">
-						<img src="{{item.image}}" />
-					</div>
-					<h2>{{item.caption}}</h2>
-					<p>Posted on {{item.date}} by Team {{item.team}}</p>
+		</div>
+			<ion-item class="item newsfeed item-text-wrap">
+				<div class="item-image" ng-if="item.image !== ''">
+					<img src="{{item.image}}" />
+				</div>
+				<h2>{{item.caption}}</h2>
+				<p>Posted on {{item.date}} by Team {{item.team}}</p>
 			</ion-item>
 		</div>
 	</ion-list>

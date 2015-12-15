@@ -26,13 +26,28 @@ angular.module('fitspiration.services', [])
 			
 		},
 		addOrg: function(org, teamName){
-			
+	
 		},
 		addToTeamHistory(org, team, historyArr){
 				var data = JSON.parse(window.localStorage[org + '.json']);
 				var json = getNewJSON(data, team, historyArr);
 				//save the new json 
 				window.localStorage[org + '.json'] = JSON.stringify(json);			
+		},
+		addPostToFeed(org, img, caption, team){
+			var path = org + "-newsfeed.json";//the path
+			var data = JSON.parse(window.localStorage[path]);
+			
+			var objs = {
+				"image": img,
+				"caption": caption,
+				"date": getPostDate(),
+				"team": team
+			};
+			
+			data.push(objs);
+			
+			window.localStorage[path] = JSON.stringify(data);
 		}
 	};
 })
@@ -92,17 +107,20 @@ angular.module('fitspiration.services', [])
   * until there are no more items
   */
 .factory('PersonService', function($http, JSONService){
-	var BASE_URL = "http://api.randomuser.me/";
-	var items = [];
 	var newsfeed = window.localStorage['org'] +"-newsfeed";
 
 	return {
 		GetNewsfeedData: function(){
 			//load newsfeed
 			JSONService.saveJSON(newsfeed);
+			var temp = window.localStorage[newsfeed +".json"]; //just in case
+			try{ //catch this to keep from error from being thrown
+				temp = JSON.parse(temp);
+			}catch($e){}
+		
 		},
 		GetFeed: function(){
-			var temp = window.localStorage[newsfeed +".json"];
+			var temp = window.localStorage[newsfeed +".json"]; //just in case
 			temp = JSON.parse(temp);
 			var data = []; //prints it out with most recent first
 			for(var i = (temp.length-1); i > 0; i--){

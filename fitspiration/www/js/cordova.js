@@ -55,6 +55,7 @@ function validYouTube(url) {
 	return (url.match(p)) ? RegExp.$1 : false;
 }
 
+
 /**
 * gets the current date for the newsfeed post
 */

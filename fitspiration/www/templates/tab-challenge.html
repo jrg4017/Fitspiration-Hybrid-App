@@ -12,18 +12,12 @@
 		<img src="img/challenge.jpg" />
 	</div>
 	<ion-list>
-		<div class="item challenge-title theme-color" ng-if="!items.length">
-			<h2>Challenge #{{challenge.latest.day}}4</h2><h3>Due {{challenge.latest.date}}Nov 2 at 11:59pm</h3>
+		<div class="item challenge-title theme-color" ng-if="!challenge.length">
+			<h2>Challenge #{{challenge.number}}</h2><h3>Due {{challenge.duedate}} at 11:59pm</h3>
 		</div>
-		<div class="item">
-			<p>{{challenge.latest.description}}Your entire team must do the following (and record it):
-				<br> 75 crunches in one sitting
-				<br> 25 burpees in one set
-				<br> 10 burpee-suicides in no more than two sets
-				<br> 15 High Box Jumps in no more than 3 sets
-				<br> 15 jumping jacks in one set
-			</p><br><br>
-			<p class="bold">Worth: {{challenge.latest.points}}150 points</p>
+		<div class="item item-text-wrap">
+			<p>{{challenge.description}}</p><br><br>
+			<p class="bold">Worth: {{challenge.points}}</p>
 		</div>
 		
 		<!-- <label class="item item-input">

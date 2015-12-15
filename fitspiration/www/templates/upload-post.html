@@ -19,13 +19,14 @@
 		<button ng-click="getPhoto()" class="button button-clear">
 			<img id="padd" src="img/camera.png">
 		</button>
-		<button ng-click="fromGallery()" class="button button-clear">
-			<img src="img/gallery.png">
-		</button>
 	</div><br>
 	<div class="list">
 		<label class="item item-input">
-			<textarea placeholder="Add a description or status" rows="20" id="textarea" ></textarea>
+			<input type="text" placeholder="Insert a url to a picture" ng-model="data.imageurl">
+		</label>
+		<br>
+		<label class="item item-input">
+			<textarea placeholder="Add a description or status" rows="20" id="textarea" ng-model="data.caption"></textarea>
 		</label>
 	</div>
 	<!-- growing text box -->
