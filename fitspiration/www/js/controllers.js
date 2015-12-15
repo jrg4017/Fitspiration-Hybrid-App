@@ -113,24 +113,37 @@ angular.module('fitspiration.controllers', [])
 })
 
 .controller('UploadChallengeCtrl',function($scope, $state, $ionicPopup, JSONService){
+	$scope.data = {};
+	
 	$scope.isAndroid = ionic.Platform.isAndroid();
 	$scope.back = function(){
 		$state.go('tab.challenge');
 	}
 	var org = window.localStorage['org'];
-	var arr = {"imageurl" : "img/ic_play_arrow.png", "title":"Challenge #4", "response":"Your Team Uploaded a video"};
 	
+	var arr = {"imageurl" : "img/ic_play_arrow.png", "title":"Challenge #4", "response":"Your Team uploaded a video"};
 	var data = JSONService.addToTeamHistory(org, window.localStorage['team'], arr);
 	
 	$scope.addItem = function(){
-		if(window.localStorage['alert'] == 'y'){
+		var ytube = $scope.data.youtube; //get the data on click
+		var bool = validYouTube(ytube); //validate it's a link
+		if(!bool){
 			alertPopup = $ionicPopup.alert({
-			title: 'Submission already received!',
-			template: 'Looks like your team already submitted to this challenge!',
-			cssClass: "button-theme-color"
-		});
-	}
-		//$state.go('tab.challenge');//go back to the challenge page
+				title: 'Oh no! We can\'t accept this',
+				template: 'We only take YouTube links right now. So please post a link from YouTube',
+				cssClass: "button-theme-color"
+			});
+		}else if(window.localStorage[window.localStorage['team'] + '-alert'] == 'y'){ //popup alert
+			alertPopup = $ionicPopup.alert({
+				title: 'Submission already received!',
+				template: 'Looks like your team already submitted to this challenge!',
+				cssClass: "button-theme-color"
+			});
+			$state.go('tab.challenge');//go back to the challenge page
+		}else{//all is well :)
+			$state.go('tab.team');//go back to team page to show output
+		}
+		
 	}
 })
 

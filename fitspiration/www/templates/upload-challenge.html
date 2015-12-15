@@ -20,9 +20,15 @@
 </ion-nav-bar>
 
  <ion-content>
-	
-	
-	
+	<ion-list>
+		<div class="padding">
+			<h2 class="title-color">Submit your Challenge:</h2>
+		</div>
+		<label class="item item-input">
+			<br><textarea placeholder="Paste your youtube url here." rows="28" id="textarea" ng-model="data.youtube"></textarea>
+		</label><br>
+		<p class="bold padding">Worth: {{challenge.latest.points}}150 points</p>
+	</ion-list>
  </ion-content>
 
 <!-- adds a floating button as per material design for android -->
