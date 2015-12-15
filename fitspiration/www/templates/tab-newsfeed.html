@@ -20,15 +20,16 @@
 			<p>Upload your own content!</p>
 			<br>
 		</div>-->
-			<ion-item class="item">
+			<ion-item class="item newsfeed item-text-wrap"">
 				<div class="text-center"><img src="{{item.user.picture.thumbnail}}" /></div>
-					<h2>{{item.user.name.first}} {{item.user.name.last}}</h2>
-					<p>FROM: {{item.user.location.city}}, {{item.user.location.state}}</p>
-					<p>SHH ITS A SECRET: {{item.user.password}}</p>
+					<div class="item-image" ng-if="item.image !== ''">
+						<img src="{{item.image}}" />
+					</div>
+					<h2>{{item.caption}}</h2>
+					<p>Posted on {{item.date}} by Team {{item.team}}</p>
 			</ion-item>
 		</div>
 	</ion-list>
-	<ion-infinite-scroll on-infinite="loadMore()" distance="5%"></ion-infinite-scroll>
 </ion-content>	
 
 <!-- adds a floating button as per material design for android -->

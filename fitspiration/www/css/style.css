@@ -105,16 +105,18 @@ textarea { resize: none; }
 .challenge-title h3 { font-size: 1em; }
 .button-white { color: white !important; }
 .bold { font-weight: bold; }
+.newsfeed h2{
+	padding: .5em 0;
+	font-size: 1.2em;
+	font-weight: 470;
+}
+.newsfeed p {
+	float: right;
+	font-size: .8em;
+}
 /**************************************************
     Hides for android devices
 ***************************************************/  
 .platform-android .hide-show{
 	display: none;
 }
-/*.platform-android #spacing-top-bar{
-	margin-top: 6em;
-}
-
-.platform-ios #spacing-top-bar{
-	margin-top: 2.5em;
-}*/

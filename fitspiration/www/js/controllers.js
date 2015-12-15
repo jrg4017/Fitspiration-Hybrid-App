@@ -26,52 +26,26 @@ angular.module('fitspiration.controllers', [])
   //scope variables
   $scope.isAndroid = ionic.Platform.isAndroid();
   $scope.items = [];
-  $scope.newItems = [];
-  $scope.page = 1;
   
   /* gets the feed and items*/
-  PersonService.GetFeed().then(function(items){
-	$scope.items = items;
-  });
-  /*refreshes the feed when called and gets new items */
-  $scope.refresh = function() {
-		if($scope.newItems.length > 0){
-			$scope.items = $scope.newItems.concat($scope.items);
-				
-			//Stop the ion-refresher from spinning
-			$scope.$broadcast('scroll.refreshComplete');
-			
-			$scope.newItems = [];
-		} else {
-			PersonService.GetNewUsers().then(function(items){
-				$scope.items = items.concat($scope.items);
-				
-				//Stop the ion-refresher from spinning
-				$scope.$broadcast('scroll.refreshComplete');
-			});
-		}
-  };
-  /* loads the next 10 items for the newsfeed*/
-  $scope.loadMore = function(){
-    PersonService.GetOldUsers().then(function(items) {
-      $scope.items = $scope.items.concat(items);
-      $scope.$broadcast('scroll.infiniteScrollComplete');
-    });
+  if(window.localStorage[window.localStorage['org'] +"-newsfeed"] == null){ //if null load it
+	PersonService.GetNewsfeedData(); //load the data
+  } //load the data into the newsfeed
 	
+	$scope.items = PersonService.GetFeed();
+  
+  /*refreshes the feed when called and gets new items */
+  $scope.refresh = function(){
+	$scope.items = PersonService.GetFeed();
+  };
+  
 	$scope.addItem = function() {
 		$state.go('upload-post');
-	}
-  };
+	};
   
   /*checks for new items every 20 seconds and loads it into the newItems array */
    var CheckNewItems = function(){
-		$timeout(function(){
-			PersonService.GetNewUsers().then(function(items){
-				$scope.newItems = items.concat($scope.newItems);
-			
-				CheckNewItems();
-			});
-		},20000);
+		$timeout(function(){$scope.items = PersonService.GetFeed();},1000);
    }
   
   CheckNewItems();

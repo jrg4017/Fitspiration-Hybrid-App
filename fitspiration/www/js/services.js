@@ -91,28 +91,24 @@ angular.module('fitspiration.services', [])
   * designed to get the newsfeed and refresh the feed 10 results at a time
   * until there are no more items
   */
-.factory('PersonService', function($http){
+.factory('PersonService', function($http, JSONService){
 	var BASE_URL = "http://api.randomuser.me/";
 	var items = [];
-	
+	var newsfeed = window.localStorage['org'] +"-newsfeed";
+
 	return {
+		GetNewsfeedData: function(){
+			//load newsfeed
+			JSONService.saveJSON(newsfeed);
+		},
 		GetFeed: function(){
-			return $http.get(BASE_URL+'?results=10').then(function(response){
-				items = response.data.results;
-				return items;
-			});
-		},
-		GetNewUsers: function(){
-			return $http.get(BASE_URL+'?results=2').then(function(response){
-				items = response.data.results;
-				return items;
-			});
-		},
-		GetOldUsers: function(){
-			return $http.get(BASE_URL+'?results=10').then(function(response){
-				items = response.data.results;
-				return items;
-			});
+			var temp = window.localStorage[newsfeed +".json"];
+			temp = JSON.parse(temp);
+			var data = []; //prints it out with most recent first
+			for(var i = (temp.length-1); i > 0; i--){
+				data.push(temp[i]);
+			}
+			return data; //parse the data
 		}
 	};
 })
