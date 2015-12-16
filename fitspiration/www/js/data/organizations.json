@@ -17,7 +17,7 @@
 		"number": 4,
 		"duedate": "Dec 21",
 		"description": "Your team must do the following (and record it): 75 crunches in one sitting, 25 burpees in one set, 10 burpee-suicides in no more than two sets, 15 High Box Jumps in no more than 3 sets, and 15 jumping jacks in one set",
-		"points": 250
+		"points": 250 ;
 	}]
 }, {
 	"orgName": "RIT_MENS_RUGBY",
